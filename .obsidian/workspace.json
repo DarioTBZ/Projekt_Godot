@@ -147,5 +147,17 @@
     }
   },
   "active": "e6e1459918a2aa00",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Better Run/scripts/player/player.gd",
+    "Better Run/scripts/game/game.gd",
+    "Better Run/scripts/UI_scripts/network_menu.gd",
+    "Better Run/scripts/UI_scripts/main_menu.gd",
+    "Better Run/scripts/player",
+    "Better Run/scripts/game",
+    "Better Run/scripts/UI_scripts",
+    "Better Run/scripts",
+    "Better Run/scenes/player/player.tscn",
+    "Better Run/scenes/player",
+    "Better Run/scenes/game/game.tscn"
+  ]
 }
