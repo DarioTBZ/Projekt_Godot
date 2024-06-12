@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://beohumdkri2y0"]
+
+[ext_resource type="Script" path="res://scripts/UI_scripts/network_menu.gd" id="1_r0uu2"]
+
+[node name="NetworkMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0uu2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.262745, 0.282353, 0.235294, 0.733333)
+
+[node name="MarginTitle" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Title" type="Label" parent="CanvasLayer/ColorRect/MarginTitle"]
+layout_mode = 2
+text = "Network"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginButton" type="MarginContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HostButton" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/MarginButton"]
+layout_mode = 2
+text = "Host game"
+
+[node name="MarginButton2" type="MarginContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/MarginButton2"]
+layout_mode = 2
+text = "Join game"
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/MarginButton/HostButton" to="." method="_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/MarginButton2/JoinButton" to="." method="_join_button_pressed"]
