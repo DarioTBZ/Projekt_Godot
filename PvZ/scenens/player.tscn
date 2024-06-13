@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://ki2yhswp3doj"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_dvsiu"]
+[ext_resource type="Texture2D" uid="uid://ckp430qvogabp" path="res://assets/charachters/cahr_1.png" id="1_gp20x"]
+[ext_resource type="Script" path="res://scripts/shooting_system.gd" id="3_yvmci"]
+[ext_resource type="PackedScene" uid="uid://ch51fsynbksj7" path="res://scenens/ui.tscn" id="4_owhuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6ikp"]
+size = Vector2(68, 71.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dvsiu")
+speed = 500.0
+
+[node name="UI" parent="." instance=ExtResource("4_owhuw")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_gp20x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.499999, -1.43051e-06)
+scale = Vector2(2.25, 2.2)
+polygon = PackedVector2Array(-0.666666, 16.3636, 4.66667, 16.3636, 7.77778, 14.5455, 13.1111, 14.5455, 13.1111, 15, 17.5556, 15, 17.5556, 12.2727, 13.1111, 12.2727, 13.1111, 12.7273, 7.77778, 12.7273, 4.66667, 10.4545, 10, 10.4545, 10, -10.9091, 4.66667, -10.9091, 5.55556, -11.8182, 5.55556, -14.5455, 4.66667, -15.4545, -0.666666, -15.4545, -1.11111, -15, -1.11111, -10.9091, -10.4444, -10.9091, -10.4444, 10.4545, -1.11111, 10.4545, -1.11111, 15.4545)
+
+[node name="ShootingSystem" type="Marker2D" parent="."]
+position = Vector2(41, 30)
+script = ExtResource("3_yvmci")
+
+[node name="Reloading" type="Timer" parent="ShootingSystem"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(7, 0.75)
+shape = SubResource("RectangleShape2D_b6ikp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="gun_reload" from="ShootingSystem" to="UI" method="_on_shooting_system_gun_reload"]
+[connection signal="mag_size" from="ShootingSystem" to="UI" method="_on_shooting_system_mag_size"]
+[connection signal="shot" from="ShootingSystem" to="UI" method="_on_shooting_system_shot"]

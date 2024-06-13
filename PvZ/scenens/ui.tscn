@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch51fsynbksj7"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_7die5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msqma"]
+bg_color = Color(0.221302, 0.221302, 0.221302, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxo62"]
+bg_color = Color(0.277885, 0.711553, 1.24815e-06, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7p8x"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn35o"]
+bg_color = Color(0.996078, 0.996078, 0.996078, 1)
+skew = Vector2(2.08165e-12, 2.08165e-12)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+anti_aliasing = false
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_7die5")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.778
+anchor_top = 0.025
+anchor_right = 0.993
+anchor_bottom = 0.049
+offset_left = -0.256065
+offset_top = -0.2
+offset_right = 0.0639648
+offset_bottom = 0.247998
+theme_override_styles/background = SubResource("StyleBoxFlat_msqma")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kxo62")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="BulletAmount" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.917
+anchor_top = 0.926
+anchor_right = 0.951
+anchor_bottom = 0.974
+offset_left = -0.384064
+offset_top = -0.048038
+offset_right = 0.44796
+offset_bottom = -0.152024
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1080.0
+offset_top = 600.0
+offset_right = 1120.0
+offset_bottom = 631.0
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxBullets" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.958
+anchor_top = 0.926
+anchor_right = 0.993
+anchor_bottom = 0.974
+offset_left = 0.383926
+offset_top = -0.048038
+offset_right = 0.0639648
+offset_bottom = -0.152024
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReloadBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 576.0
+offset_right = -488.0
+offset_bottom = -61.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b7p8x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wn35o")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
