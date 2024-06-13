@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "47bee59ad5599d3a",
+    "id": "328180a73f4fd748",
     "type": "split",
     "children": [
       {
-        "id": "4d6ec93608262f10",
+        "id": "da059b9237fa8928",
         "type": "tabs",
         "children": [
           {
-            "id": "e6e1459918a2aa00",
+            "id": "4fbcf3837e307ccc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e5d9f194c8e79276",
+    "id": "6aa869af93ce2d65",
     "type": "split",
     "children": [
       {
-        "id": "fa7ec103b01ac353",
+        "id": "acbb26c4c639c8ba",
         "type": "tabs",
         "children": [
           {
-            "id": "3fe6eef22c4081ab",
+            "id": "2aa591acc49692d2",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "39a3784cf01c52f8",
+            "id": "129f27a43a517342",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "b95e955e1818d6ef",
+            "id": "49eb4d6d28ad3209",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -72,15 +72,15 @@
     "width": 300
   },
   "right": {
-    "id": "59b4991ed7c34da7",
+    "id": "5089177e686783ed",
     "type": "split",
     "children": [
       {
-        "id": "80197ef516278d35",
+        "id": "74f9de5f7976a080",
         "type": "tabs",
         "children": [
           {
-            "id": "e1cca40a18c3715f",
+            "id": "7fe5e315f98cbdac",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -97,7 +97,7 @@
             }
           },
           {
-            "id": "304f650ee1ec2e55",
+            "id": "31f01160446ea62d",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -109,7 +109,7 @@
             }
           },
           {
-            "id": "8a5ee910eafe8ad5",
+            "id": "2344a9534088ff7f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,7 +120,7 @@
             }
           },
           {
-            "id": "5a60ad397c09aac7",
+            "id": "a3bd3898d499c497",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -146,18 +146,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e6e1459918a2aa00",
-  "lastOpenFiles": [
-    "Better Run/scripts/player/player.gd",
-    "Better Run/scripts/game/game.gd",
-    "Better Run/scripts/UI_scripts/network_menu.gd",
-    "Better Run/scripts/UI_scripts/main_menu.gd",
-    "Better Run/scripts/player",
-    "Better Run/scripts/game",
-    "Better Run/scripts/UI_scripts",
-    "Better Run/scripts",
-    "Better Run/scenes/player/player.tscn",
-    "Better Run/scenes/player",
-    "Better Run/scenes/game/game.tscn"
-  ]
+  "active": "4fbcf3837e307ccc",
+  "lastOpenFiles": []
 }
