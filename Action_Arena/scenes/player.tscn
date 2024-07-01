@@ -1,26 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://3acj4e0dtt44"]
+[gd_scene load_steps=5 format=3 uid="uid://3acj4e0dtt44"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_maq6j"]
 [ext_resource type="Texture2D" uid="uid://dixdg6aet8kuy" path="res://assets/player/player_1.png" id="1_rxox2"]
+[ext_resource type="PackedScene" uid="uid://dcoccxvdod3vj" path="res://scenes/gun.tscn" id="3_a1u36"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrgfm"]
-radius = 13.0
-height = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_fbepl"]
+radius = 15.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 15
+collision_mask = 13
 script = ExtResource("1_maq6j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Player2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_rxox2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-11, -12, -8, -12, 12, 0, 4, 5, -8, 12, -11, 12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("CapsuleShape2D_lrgfm")
+[node name="Gun" parent="." instance=ExtResource("3_a1u36")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_fbepl")
