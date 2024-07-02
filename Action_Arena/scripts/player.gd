@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var speed: float = 170
 @export var rotation_speed: float = 10
-@export var damage_per_bullet = 5
 
 var health = 100.0
+
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -19,3 +19,5 @@ func take_damage(damage):
 	
 	if health <= 0:
 		get_tree().quit()
+
+

@@ -13,7 +13,16 @@ func _ready():
 			
 
 func _on_enemy_spawn_timer_timeout():
-	var spawn = Vector2(rand_range)
+	var spawn = spawn_points[randi() % spawn_points.size()]
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn.position
 	main.add_child(enemy)
+
+
+func random_spawn_region(region, region_x, region_y):
+	var rng = RandomNumberGenerator.new()
+	var half_size_x = region_x/2
+	var half_size_y = region_y/2
+	var random_x = rng.randf_range(region.global_position.x - half_size_x, region.global_position.x + half_size_x)
+	var random_y = rng.randf_range(region.global_position.y - half_size_y, region.global_position.y + half_size_y)
+	return Vector2(random_x, random_y)

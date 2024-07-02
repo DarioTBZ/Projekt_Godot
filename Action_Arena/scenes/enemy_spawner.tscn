@@ -6,16 +6,16 @@
 script = ExtResource("1_6xml4")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.0
 autostart = true
 
 [node name="Spawner1" type="Marker2D" parent="."]
-position = Vector2(69, 154)
+position = Vector2(104, 126)
 
 [node name="Spawner2" type="Marker2D" parent="."]
-position = Vector2(469, 516)
+position = Vector2(506, 483)
 
 [node name="Spawner3" type="Marker2D" parent="."]
-position = Vector2(979, 222)
+position = Vector2(1087, 61)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
