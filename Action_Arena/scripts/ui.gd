@@ -29,7 +29,8 @@ func _on_gun_shot(mag_size, mag_amount):
 
 
 func _on_player_life(health):
-	Life.value = health
+	var tween = create_tween()
+	tween.tween_property(Life, "value", health, 0.3)
 
 
 func _on_gun_reloading(mag_amount, reload_cooldown):
@@ -39,8 +40,6 @@ func _on_gun_reloading(mag_amount, reload_cooldown):
 	Reload.value = 0.0
 	tween.tween_property(Reload, "value", 100, 2)
 	Cooldown.start(reload_cooldown)
-
-
 
 
 func _on_cooldown_timeout():

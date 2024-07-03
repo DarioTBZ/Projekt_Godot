@@ -7,6 +7,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk1fu"]
 bg_color = Color(0.721569, 0.0509804, 0.101961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -14,10 +20,17 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijcas"]
 bg_color = Color(0.203155, 0.719095, 0.0372981, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+corner_detail = 20
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -39,16 +52,20 @@ offset_top = 25.0
 offset_right = 0.5
 offset_bottom = 48.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.94902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.847059)
 theme_override_fonts/font = ExtResource("2_ixmfj")
 
 [node name="Ammo" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1070.0
 offset_top = 598.0
 offset_right = -42.0
 offset_bottom = -27.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.576471)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.745098)
 theme_override_fonts/font = ExtResource("2_ixmfj")
 
 [node name="Life" type="ProgressBar" parent="CanvasLayer"]
@@ -70,7 +87,7 @@ show_percentage = false
 
 [node name="Reload" type="TextureProgressBar" parent="CanvasLayer"]
 texture_filter = 1
-anchors_preset = -1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0

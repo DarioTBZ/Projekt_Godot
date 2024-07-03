@@ -15,8 +15,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
-func take_damage(damage):
-	health -= damage
+func take_damage(enemy_damage):
+	health -= enemy_damage
 	life.emit(health)
 	
 	if health <= 0:

@@ -42,7 +42,6 @@ offset_right = 19.0
 offset_bottom = -18.0
 theme_override_styles/background = SubResource("StyleBoxFlat_l70ut")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wt4eo")
-value = 100.0
 show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
