@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var health = 100.0
 
+signal life(health)
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -16,8 +17,12 @@ func _physics_process(delta):
 
 func take_damage(damage):
 	health -= damage
+	life.emit(health)
 	
 	if health <= 0:
 		get_tree().quit()
 
 
+func _on_area_2d_body_entered(body):
+	if Global.score >= 10 and body is CharacterBody2D:
+		get_tree().quit()

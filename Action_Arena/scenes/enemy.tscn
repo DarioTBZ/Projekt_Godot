@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtlphuykdjudp"]
+[gd_scene load_steps=8 format=3 uid="uid://dtlphuykdjudp"]
 
 [ext_resource type="Texture2D" uid="uid://butjge5pheq3v" path="res://assets/enemy/enemy_1.png" id="1_mn25f"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_o380l"]
+[ext_resource type="Script" path="res://scripts/enemy_ui.gd" id="2_o3byw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l70ut"]
+bg_color = Color(0.721569, 0.0509804, 0.101961, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt4eo"]
+bg_color = Color(0.203922, 0.717647, 0.0392157, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_salj8"]
 radius = 12.0
@@ -12,7 +27,23 @@ radius = 14.0357
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 14
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_o380l")
+
+[node name="EnemyUI" type="Node2D" parent="."]
+script = ExtResource("2_o3byw")
+
+[node name="HealthBar" type="ProgressBar" parent="EnemyUI"]
+texture_filter = 1
+offset_left = -19.0
+offset_top = -24.0
+offset_right = 19.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l70ut")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wt4eo")
+value = 100.0
+show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -36,3 +67,4 @@ debug_color = Color(0, 0.650774, 0.0682896, 0.42)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]
+[connection signal="body_exited" from="DamageBox" to="." method="_on_damage_box_body_exited"]

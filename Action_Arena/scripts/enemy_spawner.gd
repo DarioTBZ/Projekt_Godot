@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var main = get_node("/root/Main")
+@onready var timer = $EnemySpawnTimer
 
 var enemy_scene = preload("res://scenes/enemy.tscn")
 var spawn_points = []
@@ -17,6 +18,7 @@ func _on_enemy_spawn_timer_timeout():
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn.position
 	main.add_child(enemy)
+	timer.wait_time *= 0.95
 
 
 func random_spawn_region(region, region_x, region_y):
