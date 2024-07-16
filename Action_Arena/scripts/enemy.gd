@@ -41,8 +41,6 @@ func _physics_process(delta):
 
 func take_damage(damage_per_bullet):
 	enemy_health -= damage_per_bullet
-	print(Life.value)
-	print(enemy_health)
 	if enemy_health <= 0:
 		queue_free()
 		Global.score += 1
