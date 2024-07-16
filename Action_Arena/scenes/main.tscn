@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://brr3oopt1j6ta"]
+[gd_scene load_steps=29 format=3 uid="uid://brr3oopt1j6ta"]
 
 [ext_resource type="PackedScene" uid="uid://3acj4e0dtt44" path="res://scenes/player.tscn" id="1_1lbhq"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_16u3m"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d4lhi2vj60sqa" path="res://scenes/enemy_spawner.tscn" id="8_1bfqu"]
 [ext_resource type="FontFile" uid="uid://brxq8sdcfrioi" path="res://assets/font/Hunger Games.ttf" id="11_hqvkg"]
 [ext_resource type="Script" path="res://scripts/pause_game.gd" id="12_46pc1"]
+[ext_resource type="PackedScene" uid="uid://cbw2gc33tq2fl" path="res://scenes/pause_screen.tscn" id="13_t6kcv"]
 
 [sub_resource type="Environment" id="Environment_1naow"]
 background_mode = 3
@@ -229,5 +230,9 @@ color = Color(0.0623242, 0.0623242, 0.0623242, 1)
 [node name="PauseGame" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("12_46pc1")
+
+[node name="PauseScreen" parent="." instance=ExtResource("13_t6kcv")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="body_entered" from="NavigationRegion2D/TileMap/Area2D" to="Player" method="_on_area_2d_body_entered"]

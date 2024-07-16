@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbw2gc33tq2fl"]
+
+[ext_resource type="FontFile" uid="uid://b2tkc2mh4uly0" path="res://assets/font/Designer.otf" id="1_mva1a"]
+[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="1_udid4"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_udid4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.411765, 0.913725, 0.615686)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="QuittoHomeMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="QuitToHomeButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/QuittoHomeMargin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mva1a")
+theme_override_font_sizes/font_size = 15
+text = "Quit to home screen"
+
+[node name="TitleMargin" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TitleMargin/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mva1a")
+theme_override_font_sizes/font_size = 30
+text = "Paused Game"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuittoHomeMargin/QuitToHomeButton" to="." method="quitbutton_pressed"]
