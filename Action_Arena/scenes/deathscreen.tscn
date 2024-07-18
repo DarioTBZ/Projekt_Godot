@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfyowgp5bx4jv"]
+
+[ext_resource type="FontFile" uid="uid://b2tkc2mh4uly0" path="res://assets/font/Designer.otf" id="1_alwvo"]
+[ext_resource type="Script" path="res://scripts/deathscreen.gd" id="1_g0kdv"]
+[ext_resource type="FontFile" uid="uid://brxq8sdcfrioi" path="res://assets/font/Hunger Games.ttf" id="2_ld0b3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k16de"]
+bg_color = Color(0.717647, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 3
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2onf"]
+content_margin_top = 5.0
+bg_color = Color(0.26874, 0.623133, 0.832278, 1)
+border_width_bottom = 4
+border_color = Color(0.0760031, 0.273082, 0.384187, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqg6q"]
+content_margin_top = 5.0
+bg_color = Color(0.166552, 0.47577, 0.651649, 1)
+border_width_bottom = 4
+border_color = Color(0.0760031, 0.273082, 0.384187, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rndlo"]
+bg_color = Color(0.145476, 0.435018, 0.599319, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_i1sca"]
+Button/font_sizes/font_size = 19
+Button/fonts/font = ExtResource("2_ld0b3")
+Button/styles/hover = SubResource("StyleBoxFlat_i2onf")
+Button/styles/normal = SubResource("StyleBoxFlat_sqg6q")
+Button/styles/pressed = SubResource("StyleBoxFlat_rndlo")
+
+[node name="Deathscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g0kdv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 126.0
+offset_top = 149.0
+offset_right = -126.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k16de")
+
+[node name="YouDied" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 200.0
+offset_right = -417.0
+offset_bottom = -373.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_alwvo")
+theme_override_font_sizes/font_size = 50
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 340.0
+offset_right = -536.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_alwvo")
+theme_override_font_sizes/font_size = 20
+text = "Score:"
+
+[node name="HiScore" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 300.0
+offset_right = -536.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_alwvo")
+theme_override_font_sizes/font_size = 20
+text = "high-score:"
+
+[node name="Restart" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 300.0
+offset_top = 419.0
+offset_right = 500.0
+offset_bottom = 459.0
+theme = SubResource("Theme_i1sca")
+text = "RESTART"
+
+[node name="Exit" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 652.0
+offset_top = 419.0
+offset_right = -300.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_i1sca")
+text = "EXIT"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

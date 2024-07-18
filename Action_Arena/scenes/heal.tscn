@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqqbn1n1o0nne"]
+
+[ext_resource type="Script" path="res://scripts/heal.gd" id="1_f76f8"]
+[ext_resource type="Texture2D" uid="uid://b2biuknwuntf4" path="res://assets/items/heal.png" id="1_s8dc1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mr4j"]
+atlas = ExtResource("1_s8dc1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wyee"]
+atlas = ExtResource("1_s8dc1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0i1f"]
+atlas = ExtResource("1_s8dc1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnewu"]
+atlas = ExtResource("1_s8dc1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83q3s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mr4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wyee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0i1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnewu")
+}],
+"loop": true,
+"name": &"heal_pickup",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g414n"]
+size = Vector2(16, 12)
+
+[node name="Heal" type="Area2D" groups=["heal"]]
+script = ExtResource("1_f76f8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_83q3s")
+animation = &"heal_pickup"
+autoplay = "heal_pickup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_g414n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

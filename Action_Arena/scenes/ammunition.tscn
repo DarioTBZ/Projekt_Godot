@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcdpafr5wa6jt"]
+
+[ext_resource type="Script" path="res://scripts/ammunition.gd" id="1_4nxpa"]
+[ext_resource type="Texture2D" uid="uid://c7a0fjlxedfw4" path="res://assets/items/ammunition.png" id="2_071nq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi85j"]
+atlas = ExtResource("2_071nq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw3jk"]
+atlas = ExtResource("2_071nq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w1i"]
+atlas = ExtResource("2_071nq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl8hw"]
+atlas = ExtResource("2_071nq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8g46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi85j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw3jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl8hw")
+}],
+"loop": true,
+"name": &"ammo_pickup",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8l30"]
+size = Vector2(16, 12)
+
+[node name="Ammunition" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_4nxpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_v8g46")
+animation = &"ammo_pickup"
+autoplay = "ammo_pickup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_b8l30")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

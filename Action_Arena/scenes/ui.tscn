@@ -1,36 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvxb7i2xlw6yp"]
+[gd_scene load_steps=8 format=3 uid="uid://bvxb7i2xlw6yp"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_o2c8w"]
 [ext_resource type="FontFile" uid="uid://b2tkc2mh4uly0" path="res://assets/font/Designer.otf" id="2_ixmfj"]
 [ext_resource type="Texture2D" uid="uid://c2yxkdohb01eb" path="res://assets/gun/reload_bar_1.png" id="2_u5f26"]
 [ext_resource type="Texture2D" uid="uid://cnp0rb8emjkel" path="res://assets/gun/reload_bar_2.png" id="3_ggi2h"]
+[ext_resource type="Texture2D" uid="uid://d0kp8vn6gtjk4" path="res://assets/items/coin_1.png" id="5_3jvo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk1fu"]
 bg_color = Color(0.721569, 0.0509804, 0.101961, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+skew = Vector2(4, 2.08165e-12)
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijcas"]
 bg_color = Color(0.203155, 0.719095, 0.0372981, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+skew = Vector2(4, 2.08165e-12)
 corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -41,52 +29,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o2c8w")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="Score" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -0.5
-offset_top = 25.0
-offset_right = 0.5
-offset_bottom = 48.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.94902)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.847059)
-theme_override_fonts/font = ExtResource("2_ixmfj")
-
-[node name="Ammo" type="Label" parent="CanvasLayer"]
+[node name="Ammo" type="Label" parent="Interface"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1070.0
-offset_top = 598.0
-offset_right = -42.0
+offset_left = 1023.0
+offset_top = 592.0
+offset_right = -26.0
 offset_bottom = -27.0
-theme_override_colors/font_color = Color(1, 1, 1, 0.576471)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.745098)
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.768627)
 theme_override_fonts/font = ExtResource("2_ixmfj")
+theme_override_font_sizes/font_size = 30
+text = "12 / 3"
 
-[node name="Life" type="ProgressBar" parent="CanvasLayer"]
+[node name="Life" type="ProgressBar" parent="Interface"]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 914.0
-offset_top = 25.0
-offset_right = -38.0
-offset_bottom = -613.0
+offset_left = 808.0
+offset_top = 18.0
+offset_right = -44.0
+offset_bottom = -620.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.998558, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_hk1fu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ijcas")
 value = 100.0
 rounded = true
 show_percentage = false
 
-[node name="Reload" type="TextureProgressBar" parent="CanvasLayer"]
-texture_filter = 1
+[node name="Reload" type="TextureProgressBar" parent="Interface"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -102,6 +81,24 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("2_u5f26")
 texture_progress = ExtResource("3_ggi2h")
+
+[node name="Coin" type="Sprite2D" parent="Interface"]
+texture_filter = 1
+position = Vector2(34, 34)
+texture = ExtResource("5_3jvo0")
+
+[node name="Coins" type="Label" parent="Interface"]
+texture_filter = 1
+offset_left = 51.0
+offset_top = 16.0
+offset_right = 125.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_fonts/font = ExtResource("2_ixmfj")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 1
 
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true

@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://ys15r66buiag"]
+
+[ext_resource type="FontFile" uid="uid://brxq8sdcfrioi" path="res://assets/font/Hunger Games.ttf" id="1_hx07m"]
+[ext_resource type="FontFile" uid="uid://b2tkc2mh4uly0" path="res://assets/font/Designer.otf" id="2_y02nw"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="3_cgwl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbg3n"]
+content_margin_top = 5.0
+bg_color = Color(0.26874, 0.623133, 0.832278, 1)
+border_width_bottom = 4
+border_color = Color(0.0760031, 0.273082, 0.384187, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5mi0"]
+content_margin_top = 5.0
+bg_color = Color(0.166552, 0.47577, 0.651649, 1)
+border_width_bottom = 4
+border_color = Color(0.0760031, 0.273082, 0.384187, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2moea"]
+bg_color = Color(0.145476, 0.435018, 0.599319, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 2
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 2
+corner_detail = 10
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_es73s"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 19
+Button/fonts/font = ExtResource("1_hx07m")
+Button/styles/hover = SubResource("StyleBoxFlat_jbg3n")
+Button/styles/normal = SubResource("StyleBoxFlat_s5mi0")
+Button/styles/pressed = SubResource("StyleBoxFlat_2moea")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("2_y02nw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1j5p"]
+bg_color = Color(0.891666, 0.404742, 0.649552, 1)
+border_width_right = 7
+border_width_bottom = 10
+border_color = Color(0.928999, 0.540029, 0.725242, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 10
+anti_aliasing = false
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_es73s")
+script = ExtResource("3_cgwl2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.392962, 0.0974633, 0.659064, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_top = 74.0
+offset_right = -326.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1j5p")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 475.0
+offset_top = 290.0
+offset_right = -477.0
+offset_bottom = -318.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 475.0
+offset_top = 365.0
+offset_right = -477.0
+offset_bottom = -243.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -151.0
+offset_right = 219.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ACTION ARENA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

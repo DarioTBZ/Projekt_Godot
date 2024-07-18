@@ -1,51 +1,71 @@
 extends Area2D
 
 @onready var Cooldown = $Cooldown
+@onready var shooting_point = $ShootingPoint
 
-var mag_size = 12
-var mag_amount = 12
+var ammo: int = 35
+var mag_size: int = 20
+var mag_amount: int = 20
 var gun_ready = true
-var fire_rate = 0.5
+
+var fire_rate = 0.06
 var reload_cooldown = 2
 
-signal shot(mag_size, mag_amount)
-signal reloading(mag_amount, reload_cooldown)
+const BULLET = preload("res://scenes/bullet.tscn")
 
+signal shot(mag_size, mag_amount, ammo)
+signal reloading(mag_amount, reload_cooldown, ammo)
+signal refill(ammo)
 
 func _ready():
-	shot.emit(mag_size, mag_amount)
+	shot.emit(mag_size, mag_amount, ammo)
 
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("reload") and mag_amount < mag_size:
-		gun_ready = false
-		Cooldown.start(reload_cooldown)
+	if Input.is_action_just_pressed("reload"):
 		reload()
-	elif mag_amount > 0:
-		if Input.is_action_just_pressed("shoot") and gun_ready:
-			gun_ready = false
-			Cooldown.start(fire_rate)
-			shoot()
-	elif mag_amount == 0:
-		gun_ready = false
-		Cooldown.start(reload_cooldown)
-		reload()
+	if Input.is_action_pressed("shoot") and gun_ready:
+		shoot()
 
 
 func shoot():
-	const BULLET = preload("res://scenes/bullet.tscn")
+	if mag_amount == 0:
+		reload()
+		return
+	
 	var new_bullet = BULLET.instantiate()
-	new_bullet.global_position = %ShootingPoint.global_position
-	new_bullet.global_rotation = %ShootingPoint.global_rotation	
-	%ShootingPoint.add_child(new_bullet)
+	gun_ready = false
 	mag_amount -= 1
-	shot.emit(mag_size, mag_amount)
+	
+	Cooldown.start(fire_rate)
+	new_bullet.global_position = shooting_point.global_position
+	new_bullet.global_rotation = shooting_point.global_rotation	
+	shooting_point.add_child(new_bullet)
+	shot.emit(mag_size, mag_amount, ammo)
 
 
 func reload():
-	mag_amount = mag_size
-	reloading.emit(mag_amount, reload_cooldown)
+	if ammo == 0 or mag_amount == mag_size:
+		return
 
+	var ammo_missing = mag_size - mag_amount
+	gun_ready = false
+	
+	Cooldown.start(reload_cooldown)
+	
+	if ammo >= ammo_missing:
+		mag_amount += ammo_missing
+		ammo -= ammo_missing
+	elif ammo < ammo_missing:
+		mag_amount += ammo
+		ammo = 0
+	
+	reloading.emit(mag_amount, reload_cooldown, ammo)
+
+func refill_ammo(ammo_amount, item):
+	ammo += ammo_amount
+	refill.emit(ammo)
+	item.queue_free()
 
 func _on_cooldown_timeout():
 	gun_ready = true
