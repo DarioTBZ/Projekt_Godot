@@ -9,18 +9,18 @@ script = ExtResource("1_tc65b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+rotation = -0.0765828
 texture = ExtResource("1_q1qh7")
 offset = Vector2(3, 16)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(3, 8)
-polygon = PackedVector2Array(-5, 5, 5, 5, 7, 6, 14, 7, 14, 9, 7, 10, 5, 11, -5, 11)
-
 [node name="ShootingPoint" type="Marker2D" parent="."]
-position = Vector2(17, 16)
+position = Vector2(17, 15)
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.7
 one_shot = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, -3, -12, -3, -16, 6, -16, 6, -12, 12, -12, 12, 12, 6, 12, 6, 13, 16, 12, 17, 18, 0, 20, -3, 16, -3, 12, -12, 12)
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
