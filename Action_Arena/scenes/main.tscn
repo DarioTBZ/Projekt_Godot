@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://brr3oopt1j6ta"]
+[gd_scene load_steps=36 format=3 uid="uid://brr3oopt1j6ta"]
 
 [ext_resource type="PackedScene" uid="uid://3acj4e0dtt44" path="res://scenes/player.tscn" id="1_1lbhq"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_16u3m"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dtlphuykdjudp" path="res://scenes/enemy.tscn" id="12_pp640"]
 [ext_resource type="PackedScene" uid="uid://dcdpafr5wa6jt" path="res://scenes/ammunition.tscn" id="13_n5apa"]
 [ext_resource type="PackedScene" uid="uid://cfyowgp5bx4jv" path="res://scenes/deathscreen.tscn" id="15_cjm1m"]
+[ext_resource type="PackedScene" uid="uid://s7sy2ebvysns" path="res://scenes/mine.tscn" id="15_tgklr"]
 
 [sub_resource type="Environment" id="Environment_1naow"]
 background_mode = 3
@@ -303,6 +304,9 @@ position = Vector2(493, 252)
 
 [node name="Ammunition2" parent="Items" instance=ExtResource("13_n5apa")]
 position = Vector2(894, 616)
+
+[node name="Area2D" parent="Items" instance=ExtResource("15_tgklr")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_1lbhq")]
 position = Vector2(177, 517)

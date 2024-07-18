@@ -11,6 +11,7 @@ var max_health = 100.0
 var total_mines = 3
 var coin_amount: int
 var high_score: int
+var item = null
 
 const MINE = preload("res://scenes/mine.tscn")
 
@@ -45,12 +46,14 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("mine") && total_mines > 0:
-		var instance = MINE.instantiate()
-		instance.global_position = global_position
-		var item_place_mine = get_tree().get_nodes_in_group("items")[0]
-		item_place_mine.add_child(instance)
-		total_mines -= 1
+		mines()
 	
+func mines():
+	var instance = MINE.instantiate()
+	instance.global_position = self.global_position
+	var item_place_mine = get_tree().get_nodes_in_group("items")[0]
+	item_place_mine.add_child(instance)
+	total_mines -= 1
 
 func take_damage(enemy_damage):
 	health -= enemy_damage

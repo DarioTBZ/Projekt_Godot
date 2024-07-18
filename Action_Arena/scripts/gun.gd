@@ -3,9 +3,9 @@ extends Area2D
 @onready var Cooldown = $Cooldown
 @onready var shooting_point = $ShootingPoint
 
-var ammo: int = 35
-var mag_size: int = 20
-var mag_amount: int = 20
+var ammo: int = 29
+var mag_size: int = 12
+var mag_amount: int = 12
 var gun_ready = true
 
 var fire_rate = 0.06
