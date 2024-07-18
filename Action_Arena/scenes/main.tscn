@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://c21c834ah4bci" path="res://assets/map/wall_1.png" id="1_fisk6"]
 [ext_resource type="Texture2D" uid="uid://catx4yo1go2ps" path="res://assets/map/wall_end_1.png" id="2_cfi48"]
 [ext_resource type="Texture2D" uid="uid://c34kgyidritsu" path="res://assets/map/wall_corner_1.png" id="3_b16oq"]
+[ext_resource type="PackedScene" uid="uid://1766hmsjyl60" path="res://scenes/pause.tscn" id="3_t8noq"]
 [ext_resource type="Texture2D" uid="uid://dub6777nk3yst" path="res://assets/map/wall_extension_1.png" id="4_4knk8"]
 [ext_resource type="Texture2D" uid="uid://ifhyrxxvse6m" path="res://assets/map/floor_1.png" id="5_gxwf5"]
 [ext_resource type="Script" path="res://scripts/tilemap.gd" id="7_padut"]
 [ext_resource type="Texture2D" uid="uid://d0qoor0geb28j" path="res://assets/map/wall_filling_1.png" id="7_wrkvc"]
 [ext_resource type="FontFile" uid="uid://brxq8sdcfrioi" path="res://assets/font/Hunger Games.ttf" id="11_hqvkg"]
-[ext_resource type="Script" path="res://scripts/pause_game.gd" id="12_46pc1"]
 [ext_resource type="PackedScene" uid="uid://cqqbn1n1o0nne" path="res://scenes/heal.tscn" id="12_khp0a"]
 [ext_resource type="PackedScene" uid="uid://dtlphuykdjudp" path="res://scenes/enemy.tscn" id="12_pp640"]
 [ext_resource type="PackedScene" uid="uid://dcdpafr5wa6jt" path="res://scenes/ammunition.tscn" id="13_n5apa"]
@@ -220,6 +220,8 @@ script = ExtResource("1_16u3m")
 
 [node name="Deathscreen" parent="UI" instance=ExtResource("15_cjm1m")]
 
+[node name="Pause" parent="UI" instance=ExtResource("3_t8noq")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.063, 0.063, 0.063, 1)
 
@@ -261,10 +263,6 @@ text = "LOCKED"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="PauseGame" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("12_46pc1")
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -309,5 +307,6 @@ position = Vector2(894, 616)
 [node name="Player" parent="." instance=ExtResource("1_1lbhq")]
 position = Vector2(177, 517)
 
+[connection signal="body_entered" from="NavigationRegion2D/TileMap/Area2D" to="NavigationRegion2D/TileMap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="NavigationRegion2D/TileMap/Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="coins" from="Player" to="UI/Deathscreen" method="_on_player_coins"]
+[connection signal="died" from="Player" to="UI/Deathscreen" method="_on_player_died"]

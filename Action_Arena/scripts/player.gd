@@ -5,7 +5,6 @@ class_name Player
 
 
 @export var speed: float = 130
-@export var rotation_speed: float = 10
 
 var health = 100.0
 var max_health = 100.0
@@ -17,7 +16,7 @@ const MINE = preload("res://scenes/mine.tscn")
 
 signal life(health)
 signal coins(coin_amount, high_score)
-signal died()
+signal died(coin_amount, high_score)
 
 func _ready():
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
@@ -34,8 +33,6 @@ func _physics_process(delta):
 	
 	look_at(get_global_mouse_position())
 	move_and_slide()
-	
-	# Get the input direction: (0, 0) (-1, 0) (1, 0) (0, -1) (0, 1)
 	
 	if Input.is_action_just_pressed("left"):
 		animated_sprite.play("left")
@@ -61,8 +58,7 @@ func take_damage(enemy_damage):
 	animated_sprite.play("hurt")
 	
 	if health <= 0:
-		died.emit()
-		coins.emit(coin_amount, high_score)
+		died.emit(coin_amount, high_score)
 		save_game()
 		queue_free()
 
@@ -85,7 +81,3 @@ func collect_coin(value):
 func save_game():
 	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
 	save_file.store_32(high_score)
-
-func _on_area_2d_body_entered(body):
-	if Global.coins >= 7 and body is CharacterBody2D:
-		get_tree().quit()

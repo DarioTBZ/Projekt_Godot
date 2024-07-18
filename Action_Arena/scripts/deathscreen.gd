@@ -7,17 +7,17 @@ class_name Deathscreen
 func _ready():
 	self.visible = false
 
-
-func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-
-func _on_exit_pressed():
-	get_tree().quit()
-
-
-func _on_player_coins(coin_amount, high_score):
+func score_system(coin_amount, high_score):
 	score.text = "score: " + str(coin_amount)
 	hi_score.text = "high-score: " + str(high_score)
-	
-	
-	
+
+
+func _on_restart_pressed():
+	get_tree().reload_current_scene()
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func _on_player_died(coin_amount, high_score):
+	score_system(coin_amount, high_score)
+	self.visible = true
