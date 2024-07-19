@@ -48,6 +48,7 @@ theme_override_font_sizes/font_size = 30
 text = "12 / 3"
 
 [node name="Life" type="ProgressBar" parent="Interface"]
+visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0

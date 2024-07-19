@@ -25,9 +25,9 @@ func _on_gun_shot(mag_size, mag_amount, ammo):
 	reserve = ammo
 	Ammo.text = str(amount) + " / " + str(reserve)
 
-func _on_player_life(health):
+func _on_player_life(current_health):
 	var tween = create_tween()
-	tween.tween_property(Life, "value", health, 0.3)
+	tween.tween_property(Life, "value", current_health, 0.3)
 
 
 func _on_gun_reloading(mag_amount, reload_cooldown, ammo):

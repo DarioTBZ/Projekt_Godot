@@ -9,7 +9,7 @@ class_name Enemy
 
 @export var speed: float
 @export var enemy_health = 100
-@export var enemy_damage = 54.0
+@export var enemy_damage = 31.0
 @export var wander_range = 100.0
 @export var idle_time_range: Vector2 = Vector2(3.0, 8.0)
 @export var wander_time_range: Vector2 = Vector2(5.0, 10.0)
@@ -103,11 +103,6 @@ func die():
 	coin_collect.add_child(instance)
 	
 
-func _on_damage_box_body_entered(body):
-	if body.has_method("take_damage"):
-		body.take_damage(enemy_damage)
-
-
 func _on_detection_area_body_entered(body):
 	if body is Player:
 		player_chase = true
@@ -122,3 +117,8 @@ func _on_detection_area_area_entered(area):
 		current_state = State.CHASE
 		state_timer.stop()
 		
+
+
+func _on_hit_box_body_entered(body):
+	if body.has_method("take_damage"):
+		body.take_damage(enemy_damage)

@@ -6,7 +6,7 @@ class_name Player
 
 @export var speed: float = 130
 
-var health = 100.0
+var current_health = 100.0
 var max_health = 100.0
 var total_mines = 3
 var coin_amount: int
@@ -15,7 +15,7 @@ var item = null
 
 const MINE = preload("res://scenes/mine.tscn")
 
-signal life(health)
+signal life(current_health)
 signal coins(coin_amount, high_score)
 signal died(coin_amount, high_score)
 
@@ -35,11 +35,11 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("left"):
+	if direction == Vector2(-1, 0):
 		animated_sprite.play("left")
-	elif Input.is_action_just_pressed("right"):
+	elif direction == Vector2(1, 0):
 		animated_sprite.play("right")
-	elif Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
+	elif direction == Vector2(0, 1) or direction == Vector2(0, -1):
 		animated_sprite.play("forward")
 	elif direction == Vector2(0, 0):
 		animated_sprite.play("idle")
@@ -56,19 +56,19 @@ func mines():
 	total_mines -= 1
 
 func take_damage(enemy_damage):
-	health -= enemy_damage
-	life.emit(health)
+	current_health -= enemy_damage
+	life.emit(current_health)
 	animated_sprite.play("hurt")
 	
-	if health <= 0:
+	if current_health <= 0:
 		died.emit(coin_amount, high_score)
 		save_game()
 		queue_free()
 
 func heal(hp, item):
-	if health != max_health:
-		health += hp
-		life.emit(health)
+	if current_health != max_health:
+		current_health += hp
+		life.emit(current_health)
 		item.queue_free()
 
 	else:
@@ -84,3 +84,4 @@ func collect_coin(value):
 func save_game():
 	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
 	save_file.store_32(high_score)
+

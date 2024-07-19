@@ -29,10 +29,10 @@ texture = ExtResource("1_mn25f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_salj8")
 
-[node name="DamageBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="Damage" type="CollisionShape2D" parent="DamageBox"]
+[node name="Damage" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_3105k")
 debug_color = Color(0, 0.650774, 0.0682896, 0.42)
@@ -44,7 +44,6 @@ collision_mask = 5
 [node name="Detection" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_gsxjd")
 
-[connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]
-[connection signal="body_exited" from="DamageBox" to="." method="_on_damage_box_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
