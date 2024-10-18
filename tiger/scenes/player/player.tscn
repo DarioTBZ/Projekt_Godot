@@ -400,9 +400,5 @@ shape = SubResource("CircleShape2D_1noo1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_stmqh")
-animation = &"attack_up"
+animation = &"idle_front"
 autoplay = "idle_front"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
-position_smoothing_enabled = true
