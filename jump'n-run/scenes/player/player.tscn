@@ -301,9 +301,3 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_ooj8j")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-limit_bottom = 900
-limit_smoothed = true
-position_smoothing_enabled = true

@@ -14,6 +14,8 @@ var jumps_available := max_jumps
 
 func _ready() -> void:
 	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
+	
+	create_player_camera()
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -40,5 +42,21 @@ func _physics_process(delta: float):
 		
 		
 func _on_fall_into_killzone():
-	get_tree().paused = true
-	print("Tod Menu kommt hier")
+	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")
+	
+func create_player_camera():
+	var camera = Camera2D.new()
+	
+	camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
+	camera.ignore_rotation = true
+	camera.enabled = true
+	camera.zoom = Vector2(2, 2)
+	camera.process_callback = Camera2D.Camera2DProcessCallback.CAMERA2D_PROCESS_IDLE
+	
+	camera.limit_bottom = 900
+	
+	camera.position_smoothing_enabled = true
+	camera.position_smoothing_speed = 5.0
+	
+	add_child(camera)
+	camera.make_current()
