@@ -1,9 +1,10 @@
 extends Control
 
-var maintheme = load("res://assets/music/time_for_adventure.mp3")
+var maintheme = load("res://sound/menu/mainmenu-music.mp3")
+var minus_dezibel = -5
 
-func ready():
-	GlobalMusicPlayer.set_volume(0)
+func _ready():
+	GlobalMusicPlayer.set_volume(minus_dezibel)
 	GlobalMusicPlayer.play_music(maintheme)
 
 

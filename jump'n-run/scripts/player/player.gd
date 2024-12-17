@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal fell_into_killzone
+
 @export var speed := 200
 @export var jump_force := -400
 @export var gravity := 980
@@ -9,6 +11,9 @@ extends CharacterBody2D
 var jumps_available := max_jumps
 
 @onready var sprite = $AnimatedSprite2D
+
+func _ready() -> void:
+	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -33,3 +38,7 @@ func _physics_process(delta: float):
 
 	move_and_slide()
 		
+		
+func _on_fall_into_killzone():
+	get_tree().paused = true
+	print("Tod Menu kommt hier")

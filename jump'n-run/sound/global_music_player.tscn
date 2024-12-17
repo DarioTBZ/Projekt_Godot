@@ -8,6 +8,5 @@ script = ExtResource("1_wvvni")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_uc1ng")
-autoplay = true
-bus = &"MM_Music"
+bus = &"MM_Themesong"
 parameters/looping = true
