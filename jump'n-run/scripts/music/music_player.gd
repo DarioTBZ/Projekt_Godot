@@ -2,6 +2,8 @@ extends Node
 
 @onready var music_player = get_node("AudioStreamPlayer")
 
+func _ready():
+	print("Music Player Node: ", music_player)
 
 func play_music(stream: AudioStream):
 	music_player.stream = stream
