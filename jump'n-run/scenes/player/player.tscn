@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://d1imuer6rige3"]
+[gd_scene load_steps=42 format=3 uid="uid://d1imuer6rige3"]
 
 [ext_resource type="Texture2D" uid="uid://do08fef0wcums" path="res://assets/sprites/knight.png" id="1_3ywcy"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_op7y1"]
+[ext_resource type="PackedScene" uid="uid://ch8n2ernwrydc" path="res://scenes/menu/death_screen.tscn" id="3_tivvu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4iumo"]
 atlas = ExtResource("1_3ywcy")
@@ -301,3 +302,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_ooj8j")
+
+[node name="DeathScreen" parent="." instance=ExtResource("3_tivvu")]
