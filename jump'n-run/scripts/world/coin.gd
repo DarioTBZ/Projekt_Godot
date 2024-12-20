@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var animation = $AnimatedSprite2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	animation.play("default")
 
 func _on_body_entered(body):

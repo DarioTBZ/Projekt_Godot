@@ -40,9 +40,13 @@ func _physics_process(delta: float):
 
 	move_and_slide()
 		
+	
+func change_scene_deferred():
+	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")
 		
 func _on_fall_into_killzone():
-	%DeathScreen.visible = true
+	call_deferred("change_scene_deferred")
+	
 	
 func create_player_camera():
 	var camera = Camera2D.new()
