@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=13 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="PackedScene" uid="uid://d1imuer6rige3" path="res://scenes/player/player.tscn" id="2_20pxt"]
 [ext_resource type="PackedScene" uid="uid://e3jhhqnwp57p" path="res://scenes/world/deathzone.tscn" id="3_j7p1m"]
 [ext_resource type="PackedScene" uid="uid://5fhck4knfi0e" path="res://global/pause_unpause.tscn" id="4_a7hn1"]
+[ext_resource type="PackedScene" uid="uid://ch8n2ernwrydc" path="res://scenes/menu/death_screen.tscn" id="5_cuj4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kajik"]
 resource_name = "Background"
@@ -237,3 +238,7 @@ position = Vector2(166, 334)
 shape = SubResource("RectangleShape2D_durhk")
 
 [node name="PauseUnpause" parent="." instance=ExtResource("4_a7hn1")]
+
+[node name="DeathScreen" parent="." instance=ExtResource("5_cuj4m")]
+unique_name_in_owner = true
+visible = false

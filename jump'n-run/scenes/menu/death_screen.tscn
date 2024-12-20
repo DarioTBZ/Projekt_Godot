@@ -17,7 +17,7 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.690196)
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -31,7 +31,7 @@ theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.829781, 0.000543492, 0.829775, 1)
 theme_override_fonts/font = ExtResource("1_k6t86")
 theme_override_font_sizes/font_size = 70
-text = "You Died"
+text = "Du bist Tod"
 horizontal_alignment = 1
 
 [node name="GameStartButton" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -45,4 +45,15 @@ theme_override_font_sizes/font_size = 50
 text = "Neuer Versuch"
 icon = ExtResource("4_ff4mj")
 
+[node name="MainmenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.0784314, 0.25098, 1, 1)
+theme_override_colors/font_color = Color(0.968587, 5.67943e-06, 7.70092e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b38u4")
+theme_override_font_sizes/font_size = 20
+text = "Zurück zu Hauptmenu"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GameStartButton" to="." method="_on_game_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainmenuButton" to="." method="_on_mainmenu_button_pressed"]

@@ -42,7 +42,7 @@ func _physics_process(delta: float):
 		
 		
 func _on_fall_into_killzone():
-	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")
+	%DeathScreen.visible = true
 	
 func create_player_camera():
 	var camera = Camera2D.new()
