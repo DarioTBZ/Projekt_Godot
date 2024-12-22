@@ -8,6 +8,10 @@ func _physics_process(_delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		coin_sound.play()
 		body.emit_signal("coin_collected")
-		self.queue_free()
+		visible = false
+		coin_sound.play()
+
+
+func _on_audio_finished() -> void:
+	queue_free()

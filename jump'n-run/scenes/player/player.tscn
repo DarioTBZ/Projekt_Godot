@@ -290,8 +290,8 @@ height = 12.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_vogby")
-speed = 90
-jump_force = -265
+speed = 100
+jump_force = -275
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y1lv3")

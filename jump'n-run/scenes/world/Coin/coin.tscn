@@ -113,3 +113,4 @@ shape = SubResource("CircleShape2D_q0c22")
 stream = ExtResource("3_mvmlq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_finished"]
