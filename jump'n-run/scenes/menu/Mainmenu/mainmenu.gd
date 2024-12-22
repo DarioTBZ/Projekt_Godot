@@ -1,6 +1,6 @@
 extends Control
 
-var maintheme = load("res://sound/menu/mainmenu-music.mp3")
+var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 var minus_dezibel = -5
 
 func _ready():

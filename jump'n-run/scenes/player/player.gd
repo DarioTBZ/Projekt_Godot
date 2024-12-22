@@ -42,7 +42,7 @@ func _physics_process(delta: float):
 		
 	
 func change_scene_deferred():
-	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/DeathScreen/death_screen.tscn")
 		
 func _on_fall_into_killzone():
 	call_deferred("change_scene_deferred")

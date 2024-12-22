@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmg2owqfft8wx"]
 
-[ext_resource type="Script" path="res://scripts/menu/mainmenu.gd" id="1_mnuy0"]
+[ext_resource type="Script" path="res://scenes/menu/Mainmenu/mainmenu.gd" id="1_4cy0x"]
 [ext_resource type="Texture2D" uid="uid://c62pkmbwkmgy5" path="res://assets/MM_Background.jpg" id="1_uu3xo"]
 [ext_resource type="FontFile" uid="uid://cp3471nbxsu7j" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_xgbdt"]
 [ext_resource type="FontFile" uid="uid://chvclfb0c4ccl" path="res://assets/fonts/PixelOperator8.ttf" id="3_55d5l"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mnuy0")
+script = ExtResource("1_4cy0x")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpmwbpcv1gtwd"]
 
-[ext_resource type="Script" path="res://scripts/music/music_player.gd" id="1_wvvni"]
-[ext_resource type="AudioStream" uid="uid://cb4rk23r4tia5" path="res://sound/menu/mainmenu-music.mp3" id="2_uc1ng"]
+[ext_resource type="Script" path="res://scenes/sound/music_player.gd" id="1_rps8s"]
+[ext_resource type="AudioStream" uid="uid://cb4rk23r4tia5" path="res://scenes/sound/music/mainmenu-music.mp3" id="2_uc1ng"]
 
 [node name="GlobalMusicPlayer" type="Node"]
-script = ExtResource("1_wvvni")
+script = ExtResource("1_rps8s")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_uc1ng")

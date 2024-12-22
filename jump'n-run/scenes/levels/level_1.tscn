@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="PackedScene" uid="uid://d1imuer6rige3" path="res://scenes/player/player.tscn" id="2_20pxt"]
-[ext_resource type="PackedScene" uid="uid://e3jhhqnwp57p" path="res://scenes/world/deathzone.tscn" id="3_j7p1m"]
-[ext_resource type="PackedScene" uid="uid://5fhck4knfi0e" path="res://global/pause_unpause.tscn" id="4_a7hn1"]
-[ext_resource type="PackedScene" uid="uid://ch8n2ernwrydc" path="res://scenes/menu/death_screen.tscn" id="5_cuj4m"]
-[ext_resource type="PackedScene" uid="uid://bltqe26ymomum" path="res://scenes/world/coin.tscn" id="6_jd6oe"]
+[ext_resource type="PackedScene" uid="uid://e3jhhqnwp57p" path="res://scenes/world/Deathzone/deathzone.tscn" id="3_j7p1m"]
+[ext_resource type="PackedScene" uid="uid://5fhck4knfi0e" path="res://scenes/global/PauseUnpause/pause_unpause.tscn" id="4_a7hn1"]
+[ext_resource type="PackedScene" uid="uid://ch8n2ernwrydc" path="res://scenes/menu/DeathScreen/death_screen.tscn" id="5_cuj4m"]
+[ext_resource type="PackedScene" uid="uid://bltqe26ymomum" path="res://scenes/world/Coin/coin.tscn" id="6_jd6oe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kajik"]
 resource_name = "Background"
