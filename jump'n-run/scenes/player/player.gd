@@ -68,7 +68,3 @@ func create_player_camera():
 	
 	add_child(camera)
 	camera.make_current()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

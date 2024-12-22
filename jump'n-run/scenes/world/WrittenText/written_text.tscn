@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba0lvdxlfdvia"]
+
+[ext_resource type="Script" path="res://scenes/world/WrittenText/written_text.gd" id="1_ubrck"]
+[ext_resource type="FontFile" uid="uid://chvclfb0c4ccl" path="res://assets/fonts/PixelOperator8.ttf" id="2_xpgx3"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_ubrck")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 131.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xpgx3")
+theme_override_font_sizes/font_size = 8
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_2d_body_exited"]
