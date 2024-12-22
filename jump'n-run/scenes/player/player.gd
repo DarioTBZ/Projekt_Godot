@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal fell_into_killzone
+signal coin_collected
 
 @export var speed := 200
 @export var jump_force := -400
@@ -14,6 +15,7 @@ var jumps_available := max_jumps
 
 func _ready() -> void:
 	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
+	connect("coin_collected", Callable(self, "_on_coin_collected"))
 	
 	create_player_camera()
 
@@ -47,6 +49,8 @@ func change_scene_deferred():
 func _on_fall_into_killzone():
 	call_deferred("change_scene_deferred")
 	
+func _on_coin_collected():
+	%CoinCounter.update_coin_count()
 	
 func create_player_camera():
 	var camera = Camera2D.new()

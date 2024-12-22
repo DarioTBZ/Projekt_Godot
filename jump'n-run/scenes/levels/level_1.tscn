@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=17 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="PackedScene" uid="uid://d1imuer6rige3" path="res://scenes/player/player.tscn" id="2_20pxt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5fhck4knfi0e" path="res://scenes/global/PauseUnpause/pause_unpause.tscn" id="4_a7hn1"]
 [ext_resource type="PackedScene" uid="uid://ch8n2ernwrydc" path="res://scenes/menu/DeathScreen/death_screen.tscn" id="5_cuj4m"]
 [ext_resource type="PackedScene" uid="uid://bltqe26ymomum" path="res://scenes/world/Coin/coin.tscn" id="6_jd6oe"]
+[ext_resource type="PackedScene" uid="uid://cpgaorlax6yyo" path="res://scenes/world/Coin/coin_counter.tscn" id="7_3uixg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kajik"]
 resource_name = "Background"
@@ -255,4 +256,22 @@ visible = false
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("6_jd6oe")]
-position = Vector2(370, 406)
+position = Vector2(431, 344)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_jd6oe")]
+position = Vector2(576, 405)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_jd6oe")]
+position = Vector2(604, 405)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("6_jd6oe")]
+position = Vector2(629, 405)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("6_jd6oe")]
+position = Vector2(879, 297)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("6_jd6oe")]
+position = Vector2(1048, 264)
+
+[node name="CoinCounter" parent="." instance=ExtResource("7_3uixg")]
+unique_name_in_owner = true

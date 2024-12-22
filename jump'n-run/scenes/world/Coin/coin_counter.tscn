@@ -1,0 +1,151 @@
+[gd_scene load_steps=17 format=3 uid="uid://cpgaorlax6yyo"]
+
+[ext_resource type="Script" path="res://scenes/global/CoinCounter/coin_counter.gd" id="1_qqe5h"]
+[ext_resource type="Texture2D" uid="uid://cv2hr4pudwbot" path="res://assets/sprites/coin.png" id="2_04igf"]
+[ext_resource type="FontFile" uid="uid://chvclfb0c4ccl" path="res://assets/fonts/PixelOperator8.ttf" id="2_e7fhl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq3n5"]
+atlas = ExtResource("2_04igf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdk6t"]
+atlas = ExtResource("2_04igf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbx6w"]
+atlas = ExtResource("2_04igf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qxmk"]
+atlas = ExtResource("2_04igf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2bu7"]
+atlas = ExtResource("2_04igf")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt5rk"]
+atlas = ExtResource("2_04igf")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xath"]
+atlas = ExtResource("2_04igf")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6hut"]
+atlas = ExtResource("2_04igf")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q44in"]
+atlas = ExtResource("2_04igf")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3u2w"]
+atlas = ExtResource("2_04igf")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flg21"]
+atlas = ExtResource("2_04igf")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf6sw"]
+atlas = ExtResource("2_04igf")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mlvm2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq3n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdk6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbx6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qxmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2bu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt5rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xath")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6hut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q44in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3u2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flg21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf6sw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CoinCounter" type="CanvasLayer"]
+script = ExtResource("1_qqe5h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Coin" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(3, 10)
+scale = Vector2(2.95313, 2.79688)
+sprite_frames = SubResource("SpriteFrames_mlvm2")
+autoplay = "default"
+
+[node name="Placeholder" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.670588, 0.0588235, 1)
+theme_override_colors/font_shadow_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_fonts/font = ExtResource("2_e7fhl")
+theme_override_font_sizes/font_size = 20
+
+[node name="Placeholder3" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.670588, 0.0588235, 1)
+theme_override_colors/font_shadow_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_fonts/font = ExtResource("2_e7fhl")
+theme_override_font_sizes/font_size = 20
+
+[node name="Placeholder4" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.670588, 0.0588235, 1)
+theme_override_colors/font_shadow_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_fonts/font = ExtResource("2_e7fhl")
+theme_override_font_sizes/font_size = 20
+
+[node name="Placeholder2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.670588, 0.0588235, 1)
+theme_override_colors/font_shadow_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_fonts/font = ExtResource("2_e7fhl")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.670588, 0.0588235, 1)
+theme_override_colors/font_shadow_color = Color(0.497474, 0.497474, 0.497474, 1)
+theme_override_fonts/font = ExtResource("2_e7fhl")
+theme_override_font_sizes/font_size = 20
+text = "0"

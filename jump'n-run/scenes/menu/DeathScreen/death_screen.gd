@@ -8,4 +8,4 @@ func _on_game_start_button_pressed() -> void:
 
 
 func _on_mainmenu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/Mainmenu/mainmenu.tscn")
