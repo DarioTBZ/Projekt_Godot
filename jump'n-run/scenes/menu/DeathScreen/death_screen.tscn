@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch8n2ernwrydc"]
+[gd_scene load_steps=5 format=3 uid="uid://ch8n2ernwrydc"]
 
 [ext_resource type="Script" path="res://scenes/menu/DeathScreen/death_screen.gd" id="1_5txug"]
 [ext_resource type="FontFile" uid="uid://cp3471nbxsu7j" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_k6t86"]
-[ext_resource type="Texture2D" uid="uid://l37h21fh2w26" path="res://assets/pictures/DeathScreen.png" id="2_b7ox3"]
 [ext_resource type="FontFile" uid="uid://chvclfb0c4ccl" path="res://assets/fonts/PixelOperator8.ttf" id="3_b38u4"]
 [ext_resource type="Texture2D" uid="uid://co30e8yoh5x61" path="res://assets/fonts/dragonfruit-icon.png" id="4_ff4mj"]
 
@@ -16,14 +15,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeathScreen" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(575.375, 324.375)
-scale = Vector2(1.34335, 1.31694)
-texture = ExtResource("2_b7ox3")
-
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.780392)
+color = Color(0, 0, 0, 0.909804)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

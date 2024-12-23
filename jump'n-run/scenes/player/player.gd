@@ -19,6 +19,8 @@ signal health_changed(new_health)
 @export var max_hp:float = 100
 var current_hp: float = 100
 
+var is_dead: bool = false
+
 # Sprites
 @onready var sprite = $AnimatedSprite2D
 
@@ -31,6 +33,9 @@ func _ready() -> void:
 	create_player_camera()
 
 func _physics_process(delta: float):
+	if is_dead:
+		return
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -81,6 +86,8 @@ func create_player_camera():
 	camera.make_current()
 
 func take_damage(amount: float):
+	if is_dead == true:
+		return
 	current_hp -= amount
 	current_hp = clamp(current_hp, 0, max_hp)
 	emit_signal("health_changed", current_hp)
@@ -91,8 +98,9 @@ func get_health(amount: float):
 	emit_signal("health_changed", current_hp)
 
 func die():
+	is_dead = true
 	sprite.play("die")
+	GlobalMusicPlayer.stop_music()
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	emit_signal("died")
-	queue_free()

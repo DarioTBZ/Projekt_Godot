@@ -259,7 +259,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_20pxt")]
 z_index = 5
-position = Vector2(1158, 226)
+position = Vector2(347, 374)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_ubaij")]
 
@@ -382,6 +382,7 @@ full_text = "A, D und Leertaste zum bewegen"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial_Text/Tutorial_Text_1"]
 position = Vector2(60.75, 73)
 shape = SubResource("RectangleShape2D_3j68d")
+metadata/_edit_lock_ = true
 
 [node name="Tutorial_Text_2" parent="Tutorial_Text" instance=ExtResource("8_w1ejg")]
 position = Vector2(577, 355)
@@ -390,6 +391,7 @@ full_text = "Sammle Münzen"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial_Text/Tutorial_Text_2"]
 position = Vector2(18.75, 28.75)
 shape = SubResource("RectangleShape2D_brrxm")
+metadata/_edit_lock_ = true
 
 [node name="Tutorial_Text_3" parent="Tutorial_Text" instance=ExtResource("8_w1ejg")]
 position = Vector2(772, 206)
@@ -399,6 +401,18 @@ write_speed = 0.03
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial_Text/Tutorial_Text_3"]
 position = Vector2(110, 70)
 shape = SubResource("RectangleShape2D_xw7mc")
+metadata/_edit_lock_ = true
 
-[node name="enemy_slime_green" parent="." instance=ExtResource("10_q05rg")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy_slime_green" parent="Enemies" instance=ExtResource("10_q05rg")]
 position = Vector2(1246, 291)
+
+[node name="enemy_slime_green2" parent="Enemies" instance=ExtResource("10_q05rg")]
+position = Vector2(1409, 223)
+
+[node name="enemy_slime_green3" parent="Enemies" instance=ExtResource("10_q05rg")]
+position = Vector2(1813, 507)
+
+[node name="enemy_slime_green4" parent="Enemies" instance=ExtResource("10_q05rg")]
+position = Vector2(2040, 507)
