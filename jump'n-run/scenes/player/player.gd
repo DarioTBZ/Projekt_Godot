@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 signal fell_into_killzone
 signal coin_collected
+signal died(player)
 
+# Movement
 @export var speed := 200
 @export var jump_force := -400
 @export var gravity := 980
@@ -11,11 +13,20 @@ signal coin_collected
 @export var max_jumps := 1
 var jumps_available := max_jumps
 
+# HP and Damage
+signal health_changed(new_health)
+
+@export var max_hp:float = 100
+var current_hp: float = 100
+
+# Sprites
 @onready var sprite = $AnimatedSprite2D
 
 func _ready() -> void:
+	call_deferred("get_health", 100)
 	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
+	
 	
 	create_player_camera()
 
@@ -68,3 +79,20 @@ func create_player_camera():
 	
 	add_child(camera)
 	camera.make_current()
+
+func take_damage(amount: float):
+	current_hp -= amount
+	current_hp = clamp(current_hp, 0, max_hp)
+	emit_signal("health_changed", current_hp)
+	if current_hp == 0:
+		die()
+func get_health(amount: float):
+	current_hp += amount
+	emit_signal("health_changed", current_hp)
+
+func die():
+	sprite.play("die")
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	emit_signal("died")
+	queue_free()
