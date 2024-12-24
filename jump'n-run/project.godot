@@ -19,10 +19,6 @@ config/icon="res://icon/icon.png"
 
 GlobalMusicPlayer="*res://scenes/sound/global_music_player.tscn"
 
-[display]
-
-window/size/resizable=false
-
 [global_group]
 
 player=""
