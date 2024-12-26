@@ -299,6 +299,8 @@ jump_force = -275
 sprite_frames = SubResource("SpriteFrames_y1lv3")
 animation = &"hit"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
