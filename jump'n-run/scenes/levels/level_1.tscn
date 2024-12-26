@@ -259,7 +259,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_20pxt")]
 z_index = 5
-position = Vector2(347, 374)
+position = Vector2(347, 380)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_ubaij")]
 
