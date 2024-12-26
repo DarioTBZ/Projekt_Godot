@@ -29,22 +29,26 @@ shadow_color = Color(0, 0, 0, 1)
 script = ExtResource("1_qrmk4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="HPBar" type="ProgressBar" parent="Control"]
+[node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
-offset_left = 44.0
-offset_top = 578.0
-offset_right = 176.0
-offset_bottom = 608.0
-grow_horizontal = 2
-grow_vertical = 2
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_right = 132.0
+grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_kxvr7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_l62p1")
 value = 20.0

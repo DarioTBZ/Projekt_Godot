@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bav6ay2w1v00e"]
+[gd_scene load_steps=19 format=3 uid="uid://bav6ay2w1v00e"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy_slime_green.gd" id="1_n0hwx"]
 [ext_resource type="Texture2D" uid="uid://bxnjgav016qx2" path="res://assets/sprites/slime_green.png" id="2_qvpun"]
@@ -19,21 +19,21 @@ region = Rect2(48, 48, 24, 24)
 atlas = ExtResource("2_qvpun")
 region = Rect2(72, 48, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_me4rq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlgu0"]
 atlas = ExtResource("2_qvpun")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty3p5"]
-atlas = ExtResource("2_qvpun")
-region = Rect2(24, 0, 24, 24)
+region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qyex8"]
 atlas = ExtResource("2_qvpun")
 region = Rect2(48, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hlgu0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty3p5"]
 atlas = ExtResource("2_qvpun")
-region = Rect2(72, 0, 24, 24)
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me4rq"]
+atlas = ExtResource("2_qvpun")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3bei"]
 atlas = ExtResource("2_qvpun")
@@ -72,19 +72,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_me4rq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ty3p5")
+"texture": SubResource("AtlasTexture_hlgu0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qyex8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hlgu0")
+"texture": SubResource("AtlasTexture_ty3p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me4rq")
 }],
 "loop": false,
-"name": &"spawn",
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
@@ -111,6 +111,9 @@ size = Vector2(6, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkgse"]
 size = Vector2(10, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yev4j"]
+size = Vector2(4, 1)
+
 [node name="enemy_slime_green" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -118,7 +121,7 @@ script = ExtResource("1_n0hwx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_65dti")
-animation = &"walk"
+animation = &"die"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -131,4 +134,12 @@ shape = SubResource("RectangleShape2D_4u07v")
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_bkgse")
 
+[node name="DieZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DieZone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yev4j")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DamageRegion" to="." method="_on_damage_region_body_entered"]
+[connection signal="body_entered" from="DieZone" to="." method="_on_die_zone_body_entered"]

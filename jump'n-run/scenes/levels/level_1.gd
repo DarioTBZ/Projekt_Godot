@@ -1,5 +1,6 @@
 extends Node2D
 
+var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 @onready var player: CharacterBody2D = $Player
 @onready var player_ui: CanvasLayer = $PlayerUI
 
@@ -20,6 +21,10 @@ func _ready() -> void:
 	enemy_slime_green_3.connect("make_damage", Callable(player, "take_damage"))
 	enemy_slime_green_4.connect("make_damage", Callable(player, "take_damage"))
 	
+	if GlobalMusicPlayer.is_playing():
+		return
+	else:
+		GlobalMusicPlayer.play_music(maintheme)
 
 func player_died():
 	death_screen.visible = true

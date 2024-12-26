@@ -23,6 +23,8 @@ var is_dead: bool = false
 
 # Sprites
 @onready var sprite = $AnimatedSprite2D
+@onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 
 func _ready() -> void:
 	call_deferred("get_health", 100)
@@ -52,6 +54,7 @@ func _physics_process(delta: float):
 		jumps_available = max_jumps
 		
 	if Input.is_action_just_pressed("jump") and jumps_available > 0:
+		jump_sound.play()
 		velocity.y = jump_force
 		jumps_available -= 1
 		
@@ -88,6 +91,7 @@ func create_player_camera():
 func take_damage(amount: float):
 	if is_dead == true:
 		return
+	hurt_sound.play()
 	current_hp -= amount
 	current_hp = clamp(current_hp, 0, max_hp)
 	emit_signal("health_changed", current_hp)

@@ -11,3 +11,7 @@ func stop_music():
 	
 func set_volume(volume: float):
 	music_player.volume_db = volume
+
+func is_playing():
+	if music_player.playing:
+		return true
