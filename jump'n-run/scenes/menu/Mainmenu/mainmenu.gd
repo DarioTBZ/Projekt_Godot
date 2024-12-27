@@ -8,6 +8,8 @@ func _ready():
 	level1_scene = preload("res://scenes/levels/level_1.tscn")
 	GlobalMusicPlayer.set_volume(minus_dezibel)
 	GlobalMusicPlayer.play_music(maintheme)
+	Settings.load_settings()
+	Settings.center_window()
 
 
 func gamestart_button_pressed() -> void:
