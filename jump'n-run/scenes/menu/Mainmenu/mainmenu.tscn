@@ -92,4 +92,5 @@ text = "Spiel beenden"
 icon = ExtResource("4_r72fp")
 
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/GameStartButton" to="." method="gamestart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/QuitButton" to="." method="quit_button_pressed"]
