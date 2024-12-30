@@ -12,7 +12,7 @@ signal died(player)
 @export var friction := 1200
 @export var max_jumps := 1
 var jumps_available := max_jumps
-
+var is_in_animation = false
 # HP and Damage
 signal health_changed(new_health)
 
@@ -25,17 +25,20 @@ var is_dead: bool = false
 @onready var sprite = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
+@onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
 	call_deferred("get_health", 100)
 	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
-	
-	
-	create_player_camera()
 
 func _physics_process(delta: float):
 	if is_dead:
+		return
+	if is_in_animation == false && camera.enabled == false:
+		camera.enabled = true
+	if is_in_animation:
+		camera.enabled = false
 		return
 	
 	if not is_on_floor():
@@ -53,40 +56,22 @@ func _physics_process(delta: float):
 	if is_on_floor():
 		jumps_available = max_jumps
 		
-	if Input.is_action_just_pressed("jump") and jumps_available > 0:
+	if Input.is_action_just_pressed("jump") and jumps_available > 0 and is_in_animation == false:
 		jump_sound.play()
 		velocity.y = jump_force
 		jumps_available -= 1
 		
 
 	move_and_slide()
-		
-	
+
 func change_scene_deferred():
 	get_tree().change_scene_to_file("res://scenes/menu/DeathScreen/death_screen.tscn")
-		
+
 func _on_fall_into_killzone():
 	call_deferred("change_scene_deferred")
-	
+
 func _on_coin_collected():
 	%CoinCounter.update_coin_count()
-	
-func create_player_camera():
-	var camera = Camera2D.new()
-	
-	camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	camera.ignore_rotation = true
-	camera.enabled = true
-	camera.zoom = Vector2(2, 2)
-	camera.process_callback = Camera2D.Camera2DProcessCallback.CAMERA2D_PROCESS_IDLE
-	
-	camera.limit_bottom = 900
-	
-	camera.position_smoothing_enabled = true
-	camera.position_smoothing_speed = 5.0
-	
-	add_child(camera)
-	camera.make_current()
 
 func take_damage(amount: float):
 	if is_dead == true:
@@ -97,6 +82,7 @@ func take_damage(amount: float):
 	emit_signal("health_changed", current_hp)
 	if current_hp == 0:
 		die()
+
 func get_health(amount: float):
 	current_hp += amount
 	emit_signal("health_changed", current_hp)
@@ -105,6 +91,19 @@ func die():
 	is_dead = true
 	sprite.play("die")
 	GlobalMusicPlayer.stop_music()
-	
+
 func _on_animated_sprite_2d_animation_finished() -> void:
 	emit_signal("died")
+
+func AN_play_slow_walk():
+	is_in_animation = true
+	sprite.play("AN_slow_walk")
+
+
+func AN_play_idle():
+	is_in_animation = true
+	sprite.play("AN_idle")
+
+func AN_end_animation():
+	is_in_animation = false
+	sprite.stop()

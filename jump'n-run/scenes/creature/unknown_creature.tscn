@@ -1,0 +1,125 @@
+[gd_scene load_steps=27 format=3 uid="uid://81giubl4sbjv"]
+
+[ext_resource type="Script" path="res://scenes/creature/unknown_creature.gd" id="1_klw6f"]
+[ext_resource type="Texture2D" uid="uid://dqi6aswi400by" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0000.png" id="1_qh1nh"]
+[ext_resource type="Texture2D" uid="uid://car6cn1cba6am" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0001.png" id="2_gtw03"]
+[ext_resource type="Texture2D" uid="uid://cjst6o0xy4qo" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0002.png" id="3_5hlhm"]
+[ext_resource type="Texture2D" uid="uid://c1yep4avvr6qs" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0003.png" id="4_o7a8r"]
+[ext_resource type="Texture2D" uid="uid://brdg7libca1v6" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0004.png" id="5_3stk0"]
+[ext_resource type="Texture2D" uid="uid://bb4qs1tknnag5" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0005.png" id="6_bgrak"]
+[ext_resource type="Texture2D" uid="uid://b2amt40e10mtw" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0006.png" id="7_alcaq"]
+[ext_resource type="Texture2D" uid="uid://syf71mmsaqw" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0007.png" id="8_m2pmi"]
+[ext_resource type="Texture2D" uid="uid://cpjaskerq3tc3" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0008.png" id="9_dga6r"]
+[ext_resource type="Texture2D" uid="uid://d3sa5ps1jucc3" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0009.png" id="10_g85p7"]
+[ext_resource type="Texture2D" uid="uid://c3lsfm8jbs4us" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0010.png" id="11_2auj4"]
+[ext_resource type="Texture2D" uid="uid://4etg7pd18ecd" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0011.png" id="12_kc4h8"]
+[ext_resource type="Texture2D" uid="uid://bhf5r48cuqatc" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0012.png" id="13_uw6sr"]
+[ext_resource type="Texture2D" uid="uid://bu2khcwsbcq1r" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0013.png" id="14_rkr6e"]
+[ext_resource type="Texture2D" uid="uid://71sx48a70tj6" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0014.png" id="15_b41xg"]
+[ext_resource type="Texture2D" uid="uid://bj2v4uwsc52ri" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0015.png" id="16_g2tho"]
+[ext_resource type="Texture2D" uid="uid://jq20idlg48hk" path="res://assets/sprites/unknown_creature/Idle-MoonstoneKeeper-SUCART/No BG/frame0016.png" id="17_1f1cv"]
+[ext_resource type="Texture2D" uid="uid://m43088ml8cik" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0000.png" id="18_w56ks"]
+[ext_resource type="Texture2D" uid="uid://dpdycv7487q30" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0001.png" id="19_f48sy"]
+[ext_resource type="Texture2D" uid="uid://coatotskuijni" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0002.png" id="20_nyesb"]
+[ext_resource type="Texture2D" uid="uid://cd0wd5hgjjoy4" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0003.png" id="21_6pulh"]
+[ext_resource type="Texture2D" uid="uid://tu856t340fl6" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0004.png" id="22_n643w"]
+[ext_resource type="Texture2D" uid="uid://cp8slp1ofh5fi" path="res://assets/sprites/unknown_creature/Run-MoonstoneKeeper-SUCART/No BG/frame0005.png" id="23_0f5lw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jalp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qh1nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gtw03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5hlhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o7a8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3stk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bgrak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_alcaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m2pmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dga6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g85p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2auj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kc4h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uw6sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rkr6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b41xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g2tho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1f1cv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_w56ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_f48sy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_nyesb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_6pulh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n643w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0f5lw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54f60"]
+radius = 5.0
+height = 42.0
+
+[node name="UnknownCreature" type="CharacterBody2D"]
+script = ExtResource("1_klw6f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_jalp2")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_54f60")

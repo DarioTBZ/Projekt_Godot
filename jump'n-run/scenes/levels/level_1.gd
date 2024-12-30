@@ -1,5 +1,6 @@
 extends Node2D
 
+var horror_theme = load("res://assets/music/horror_background.wav")
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 @onready var player: CharacterBody2D = $Player
 @onready var player_ui: CanvasLayer = $PlayerUI
@@ -13,6 +14,8 @@ var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 
 
 func _ready() -> void:
+	modulate = Color(0.75, 0.75, 0.75, 1)
+	player.position = Vector2(345.0, 382.0)
 	player.connect("health_changed", Callable(player_ui, "update_health_bar"))
 	player.connect("died", Callable(self, "player_died"))
 	
@@ -26,5 +29,10 @@ func _ready() -> void:
 	else:
 		GlobalMusicPlayer.play_music(maintheme)
 
+
 func player_died():
 	death_screen.visible = true
+
+
+func _on_body_entered_creepyzone(body: Node2D) -> void:
+	modulate = Color(0.5, 0.5, 0.5, 1)
