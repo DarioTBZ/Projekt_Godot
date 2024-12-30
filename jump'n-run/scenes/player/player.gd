@@ -31,6 +31,12 @@ func _ready() -> void:
 	call_deferred("get_health", 100)
 	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
+	
+	var cam_zoom: Vector2
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		cam_zoom = config.get_value("video", "cam_zoom", Vector2(2, 2))
+	camera.zoom = cam_zoom
 
 func _physics_process(delta: float):
 	if is_dead:

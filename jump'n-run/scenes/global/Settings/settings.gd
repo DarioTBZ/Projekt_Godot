@@ -2,7 +2,22 @@ extends Node
 
 func save_settings():
 	var config = ConfigFile.new()
-	config.set_value("video", "resolution", DisplayServer.window_get_size())
+	var resolution = DisplayServer.window_get_size()
+	config.set_value("video", "resolution", resolution)
+	var cam_zoom: Vector2
+	if resolution == Vector2i(2560, 1440):
+		cam_zoom = Vector2(3.0, 3.0)
+	elif resolution == Vector2i(1920, 1080):
+		cam_zoom = Vector2(2.0, 2.0)
+	elif resolution == Vector2i(1280, 720):
+		cam_zoom = Vector2(1.0, 1.0)
+	elif resolution == Vector2i(800, 600):
+		cam_zoom = Vector2(1.0, 1.0)
+	else:
+		print("Not working")
+	config.set_value("video", "cam_zoom", cam_zoom)
+	
+	
 	config.save("user://settings.cfg")
 
 func load_settings():
