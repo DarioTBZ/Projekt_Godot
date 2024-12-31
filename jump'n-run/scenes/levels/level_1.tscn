@@ -27,7 +27,7 @@ size = Vector2(172.5, 63.5)
 size = Vector2(168, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxpmd"]
-size = Vector2(20, 813)
+size = Vector2(20, 244.488)
 
 [sub_resource type="Animation" id="Animation_pnkmd"]
 resource_name = "Test"
@@ -430,28 +430,28 @@ script = ExtResource("15_xpwd5")
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D"]
-position = Vector2(-281, -145)
+position = Vector2(-281, -281.244)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D2" type="Area2D" parent="MusicChange"]
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D2"]
-position = Vector2(-113, -123)
+position = Vector2(-113, -223)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D3" type="Area2D" parent="MusicChange"]
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D3"]
-position = Vector2(29, -118)
+position = Vector2(32, -203)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D4" type="Area2D" parent="MusicChange"]
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D4"]
-position = Vector2(170, -107)
+position = Vector2(166, -175)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

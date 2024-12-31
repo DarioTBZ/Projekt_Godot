@@ -116,3 +116,6 @@ func AN_play_idle():
 func AN_end_animation():
 	is_in_animation = false
 	sprite.stop()
+
+func add_jump_from_slime():
+	jumps_available += 1
