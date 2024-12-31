@@ -20,6 +20,10 @@ config/icon="res://icon/icon.png"
 GlobalMusicPlayer="*res://scenes/sound/global_music_player.tscn"
 Settings="*res://scenes/global/Settings/settings.tscn"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1920

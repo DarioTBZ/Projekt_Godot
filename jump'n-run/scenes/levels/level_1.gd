@@ -1,5 +1,7 @@
 extends Node2D
 
+signal player_respawn
+
 var horror_theme = load("res://assets/music/horror_background.wav")
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 @onready var player: CharacterBody2D = $Player
@@ -11,7 +13,7 @@ var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 @onready var enemy_slime_green_3: CharacterBody2D = $Enemies/enemy_slime_green3
 @onready var enemy_slime_green_4: CharacterBody2D = $Enemies/enemy_slime_green4
 @onready var coin_counter: CanvasLayer = %CoinCounter
-@onready var death_screen: CanvasLayer = %DeathScreen
+@onready var death_screen: CanvasLayer = $DeathScreen
 
 
 func _ready() -> void:
@@ -20,6 +22,7 @@ func _ready() -> void:
 	player.connect("health_changed", Callable(player_ui, "update_health_bar"))
 	animation_player.connect("ui_switch", Callable(player_ui, "switch_ui"))
 	player_ui.connect("ui_switch_coin_counter", Callable(coin_counter, "ui_switch_coin_counter"))
+	connect("player_respawn", Callable(player, "respawn"))
 	
 	if GlobalMusicPlayer.is_playing():
 		GlobalMusicPlayer.set_volume(-5)
@@ -28,6 +31,10 @@ func _ready() -> void:
 		GlobalMusicPlayer.play_music(maintheme)
 		GlobalMusicPlayer.set_volume(-5)
 
+func respawn_player():
+	player.position = Vector2(345.0, 382.0)
+	emit_signal("player_respawn")
+	death_screen.visible = false
 
 func player_died():
 	death_screen.visible = true

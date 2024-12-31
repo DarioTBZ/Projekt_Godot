@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 signal coin_collected
 signal died(player)
+signal show_deathscreen
+
+var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 
 # Movement
 @export var speed := 200
@@ -69,15 +72,13 @@ func _physics_process(delta: float):
 		jump_sound.play()
 		velocity.y = jump_force
 		jumps_available -= 1
-		
 
 	move_and_slide()
 
-func change_scene_deferred():
-	get_tree().change_scene_to_file("res://scenes/menu/DeathScreen/death_screen.tscn")
-
 func fell_into_killzone():
-	call_deferred("change_scene_deferred")
+	emit_signal("died")
+	visible = false
+	is_dead = true
 
 func _on_coin_collected():
 	%CoinCounter.update_coin_count()
@@ -108,7 +109,6 @@ func AN_play_slow_walk():
 	is_in_animation = true
 	sprite.play("AN_slow_walk")
 
-
 func AN_play_idle():
 	is_in_animation = true
 	sprite.play("AN_idle")
@@ -119,3 +119,10 @@ func AN_end_animation():
 
 func add_jump_from_slime():
 	jumps_available += 1
+
+func respawn():
+	is_dead = false
+	get_health(100)
+	GlobalMusicPlayer.play_music(maintheme)
+	if visible == false:
+		visible = true

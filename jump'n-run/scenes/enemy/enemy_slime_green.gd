@@ -18,11 +18,13 @@ var damage:float = 20.0
 var gravity: float = 980.0
 var max_fall_speed: float = 980.0
 
-var player: Node = null
 
+var player: Node = null
+var death_sound_played = false
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
+	death_sound_played = false
 	player = get_node("/root/Level1/Player")
 	if player and player.is_in_group("player"):
 		connect("make_damage", Callable(player, "take_damage"))
@@ -53,6 +55,7 @@ func _on_die_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		emit_signal("add_jump_to_player")
 		play_death_sound()
+		death_sound_played = true
 		is_dead = true
 		sprite.play("die")
 
@@ -64,6 +67,9 @@ func _on_death_sound_finished() -> void:
 
 
 func play_death_sound():
-	var random_index = randi() % death_sounds.size()
-	audio.stream = death_sounds[random_index]
-	audio.play()
+	if death_sound_played:
+		return
+	else:
+		var random_index = randi() % death_sounds.size()
+		audio.stream = death_sounds[random_index]
+		audio.play()

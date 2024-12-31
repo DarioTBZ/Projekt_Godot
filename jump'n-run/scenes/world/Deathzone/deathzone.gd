@@ -11,6 +11,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		emit_signal("player_fell_in_killzone")
-		body.queue_free()
 	elif body.is_in_group("enemy"):
 		body.queue_free()

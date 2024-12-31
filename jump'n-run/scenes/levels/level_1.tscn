@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=35 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_kjegv"]
@@ -28,6 +28,9 @@ size = Vector2(168, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxpmd"]
 size = Vector2(20, 244.488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csusr"]
+size = Vector2(20, 309)
 
 [sub_resource type="Animation" id="Animation_pnkmd"]
 resource_name = "Test"
@@ -454,6 +457,13 @@ position = Vector2(2006, 498)
 position = Vector2(166, -175)
 shape = SubResource("RectangleShape2D_uxpmd")
 
+[node name="SoundLauter" type="Area2D" parent="MusicChange"]
+position = Vector2(1483, 191)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/SoundLauter"]
+position = Vector2(111, 53)
+shape = SubResource("RectangleShape2D_csusr")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b0amr")
@@ -513,10 +523,6 @@ position = Vector2(756, 334)
 shape = SubResource("RectangleShape2D_durhk")
 
 [node name="PauseUnpause" parent="." instance=ExtResource("4_a7hn1")]
-
-[node name="DeathScreen" parent="." instance=ExtResource("5_cuj4m")]
-unique_name_in_owner = true
-visible = false
 
 [node name="Coins" type="Node" parent="."]
 
@@ -593,10 +599,14 @@ unique_name_in_owner = true
 
 [node name="pause_ui" parent="." instance=ExtResource("10_sasdw")]
 
+[node name="DeathScreen" parent="." instance=ExtResource("5_cuj4m")]
+visible = false
+
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D3" to="MusicChange" method="_on_body_entered_phase2"]
 [connection signal="body_entered" from="MusicChange/Area2D4" to="." method="_on_body_entered_creepyzone"]
 [connection signal="body_entered" from="MusicChange/Area2D4" to="MusicChange" method="_on_body_entered_phase3"]
+[connection signal="body_entered" from="MusicChange/SoundLauter" to="MusicChange" method="_on_sound_lauter_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
 [connection signal="body_entered" from="AnimationPlayer/Area2D" to="AnimationPlayer" method="_on_area_2d_body_entered"]
