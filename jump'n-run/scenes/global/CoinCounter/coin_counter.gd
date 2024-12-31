@@ -12,4 +12,3 @@ func ui_switch_coin_counter():
 		visible = false
 	elif visible == false:
 		visible = true
-	print("switched coin ui")

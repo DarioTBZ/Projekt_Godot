@@ -11,6 +11,9 @@ func _physics_process(_delta):
 	animation.play("default")
 
 func _on_body_entered(body):
+	if is_collected:
+		return
+	
 	if body.is_in_group("player"):
 		is_collected = true
 		coin_sound.play()

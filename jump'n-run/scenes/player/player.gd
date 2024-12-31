@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-signal fell_into_killzone
 signal coin_collected
 signal died(player)
 
@@ -20,6 +19,7 @@ signal health_changed(new_health)
 var current_hp: float = 100
 
 var is_dead: bool = false
+var level: Node = null
 
 # Sprites
 @onready var sprite = $AnimatedSprite2D
@@ -28,9 +28,12 @@ var is_dead: bool = false
 @onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
+	level = get_node("/root/Level1")
+	
 	call_deferred("get_health", 100)
-	connect("fell_into_killzone", Callable(self, "_on_fall_into_killzone"))
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
+	connect("died", Callable(level, "player_died"))
+
 	
 	var cam_zoom: Vector2
 	var config = ConfigFile.new()
@@ -73,7 +76,7 @@ func _physics_process(delta: float):
 func change_scene_deferred():
 	get_tree().change_scene_to_file("res://scenes/menu/DeathScreen/death_screen.tscn")
 
-func _on_fall_into_killzone():
+func fell_into_killzone():
 	call_deferred("change_scene_deferred")
 
 func _on_coin_collected():

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal make_damage(amount: float)
+signal add_jump_to_player
 
 var is_dead = false
 @onready var sprite = $AnimatedSprite2D
@@ -10,6 +11,13 @@ var damage:float = 20.0
 
 var gravity: float = 980.0
 var max_fall_speed: float = 980.0
+
+var player: Node = null
+
+func _ready() -> void:
+	player = get_node("/root/Level1/Player")
+	if player and player.is_in_group("player"):
+		connect("make_damage", Callable(player, "take_damage"))
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -34,6 +42,7 @@ func _on_damage_region_body_entered(body: Node2D) -> void:
 
 func _on_die_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		emit_signal("add_jump_to_player")
 		is_dead = true
 		sprite.play("die")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=34 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_kjegv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgaorlax6yyo" path="res://scenes/world/Coin/coin_counter.tscn" id="7_3uixg"]
 [ext_resource type="PackedScene" uid="uid://ba0lvdxlfdvia" path="res://scenes/world/WrittenText/written_text.tscn" id="8_w1ejg"]
 [ext_resource type="PackedScene" uid="uid://bav6ay2w1v00e" path="res://scenes/enemy/enemy_slime_green.tscn" id="10_q05rg"]
+[ext_resource type="PackedScene" uid="uid://dppting46faqy" path="res://scenes/menu/Pause_UI/pause_ui.tscn" id="10_sasdw"]
 [ext_resource type="PackedScene" uid="uid://81giubl4sbjv" path="res://scenes/creature/unknown_creature.tscn" id="13_0eyhj"]
 [ext_resource type="Texture2D" uid="uid://bc7r1kypi8dn8" path="res://assets/Light/light2.png" id="14_ptaa8"]
 [ext_resource type="Script" path="res://scenes/sound/level1_music_change/music_change.gd" id="15_xpwd5"]
@@ -27,9 +28,6 @@ size = Vector2(168, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxpmd"]
 size = Vector2(20, 813)
-
-[sub_resource type="Animation" id="Animation_54r0p"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_pnkmd"]
 resource_name = "Test"
@@ -147,6 +145,9 @@ tracks/7/keys = {
 "update": 1,
 "values": [true, false]
 }
+
+[sub_resource type="Animation" id="Animation_54r0p"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0amr"]
 _data = {
@@ -543,33 +544,29 @@ position = Vector2(879, 297)
 z_index = 6
 position = Vector2(1048, 264)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("6_jd6oe")]
-z_index = 6
-position = Vector2(1576, 439)
-
 [node name="Coin8" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
 position = Vector2(1656, 523)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
-position = Vector2(1924, 476)
+position = Vector2(2167, 367)
 
 [node name="Coin10" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
-position = Vector2(2121, 343)
+position = Vector2(2023, 368)
 
 [node name="Coin11" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
-position = Vector2(2121, 310)
+position = Vector2(2023, 335)
 
 [node name="Coin12" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
-position = Vector2(2121, 326)
+position = Vector2(2023, 351)
 
 [node name="Coin15" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
-position = Vector2(1912, 338)
+position = Vector2(1908, 331)
 
 [node name="Coin16" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
@@ -583,14 +580,6 @@ position = Vector2(1657, 248)
 z_index = 6
 position = Vector2(1549, 239)
 
-[node name="Coin19" parent="Coins" instance=ExtResource("6_jd6oe")]
-z_index = 6
-position = Vector2(1837, 346)
-
-[node name="Coin20" parent="Coins" instance=ExtResource("6_jd6oe")]
-z_index = 6
-position = Vector2(1993, 365)
-
 [node name="Coin22" parent="Coins" instance=ExtResource("6_jd6oe")]
 z_index = 6
 position = Vector2(1215, 230)
@@ -601,6 +590,8 @@ position = Vector2(1352, 224)
 
 [node name="CoinCounter" parent="." instance=ExtResource("7_3uixg")]
 unique_name_in_owner = true
+
+[node name="pause_ui" parent="." instance=ExtResource("10_sasdw")]
 
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
