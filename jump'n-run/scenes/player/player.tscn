@@ -1,9 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://d1imuer6rige3"]
+[gd_scene load_steps=58 format=3 uid="uid://d1imuer6rige3"]
 
 [ext_resource type="Texture2D" uid="uid://do08fef0wcums" path="res://assets/sprites/knight.png" id="1_3ywcy"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_vogby"]
 [ext_resource type="AudioStream" uid="uid://bv5ht6280gdj6" path="res://assets/sounds/jump.wav" id="3_ec0t3"]
 [ext_resource type="AudioStream" uid="uid://cu788nb88kbdl" path="res://assets/sounds/hurt.wav" id="4_beayr"]
+[ext_resource type="AudioStream" uid="uid://b80dsiu3dm2g8" path="res://scenes/sound/deathscreen/game_over_sound_1.wav" id="5_68b88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu562"]
 atlas = ExtResource("1_3ywcy")
@@ -421,6 +422,9 @@ pitch_scale = 0.67
 stream = ExtResource("4_beayr")
 volume_db = 5.0
 pitch_scale = 1.15
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_68b88")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

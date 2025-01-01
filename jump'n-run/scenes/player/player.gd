@@ -5,7 +5,6 @@ signal died(player)
 signal show_deathscreen
 signal health_changed(new_health)
 
-
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 
 # Movement
@@ -27,9 +26,13 @@ var level: Node = null
 
 # Sprites
 @onready var sprite = $AnimatedSprite2D
+@onready var camera: Camera2D = $Camera2D
+
+
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
-@onready var camera: Camera2D = $Camera2D
+@onready var death_sound = $DeathSound
+
 
 @onready var player_ui: CanvasLayer = null
 
@@ -81,6 +84,7 @@ func _physics_process(delta: float):
 	move_and_slide()
 
 func fell_into_killzone():
+	death_sound.play()
 	emit_signal("died")
 	visible = false
 	is_dead = true
@@ -103,6 +107,7 @@ func get_health(amount: float):
 	emit_signal("health_changed", current_hp)
 
 func die():
+	death_sound.play()
 	is_dead = true
 	sprite.play("die")
 	GlobalMusicPlayer.stop_music()

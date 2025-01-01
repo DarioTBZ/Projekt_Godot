@@ -383,6 +383,8 @@ size = Vector2(547, 83)
 modulate = Color(0.753984, 0.753984, 0.753984, 1)
 script = ExtResource("1_kjegv")
 
+[node name="GameStartSound" type="AudioStreamPlayer" parent="."]
+
 [node name="Lights" type="Node" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]

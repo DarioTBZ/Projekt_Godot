@@ -4,6 +4,8 @@ signal player_respawn
 
 var horror_theme = load("res://assets/music/horror_background.wav")
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
+var game_start: AudioStream = load("res://scenes/sound/levelstart/game_start_sound.mp3")
+
 @onready var player: CharacterBody2D = $Player
 @onready var player_ui: CanvasLayer = $PlayerUI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -16,7 +18,12 @@ var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 @onready var death_screen: CanvasLayer = $DeathScreen
 
 
+@onready var game_start_player = $GameStartSound
+
+
 func _ready() -> void:
+	game_start_player.stream = game_start
+	game_start_player.play()
 	modulate = Color(0.75, 0.75, 0.75, 1)
 	player.position = Vector2(345.0, 382.0)
 	animation_player.connect("ui_switch", Callable(player_ui, "switch_ui"))
