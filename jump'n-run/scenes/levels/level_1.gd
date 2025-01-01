@@ -6,14 +6,15 @@ var horror_theme = load("res://assets/music/horror_background.wav")
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 var game_start: AudioStream = load("res://scenes/sound/levelstart/game_start_sound.mp3")
 
-@onready var player: CharacterBody2D = $Player
+# New System
+#var player = Gamemanager.player
+
+# Old System
+
+@onready var player: Node = $Player
 @onready var player_ui: CanvasLayer = $PlayerUI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var enemy_slime_green: CharacterBody2D = $Enemies/enemy_slime_green
-@onready var enemy_slime_green_2: CharacterBody2D = $Enemies/enemy_slime_green2
-@onready var enemy_slime_green_3: CharacterBody2D = $Enemies/enemy_slime_green3
-@onready var enemy_slime_green_4: CharacterBody2D = $Enemies/enemy_slime_green4
 @onready var coin_counter: CanvasLayer = %CoinCounter
 @onready var death_screen: CanvasLayer = $DeathScreen
 

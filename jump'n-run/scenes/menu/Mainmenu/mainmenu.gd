@@ -13,9 +13,8 @@ func _ready():
 
 
 func gamestart_button_pressed() -> void:
-	get_tree().change_scene_to_packed(level1_scene)
-
-
+	Gamemanager.load_level("res://scenes/levels/level_1.tscn")
+	queue_free()
 
 func quit_button_pressed() -> void:
 	get_tree().quit()

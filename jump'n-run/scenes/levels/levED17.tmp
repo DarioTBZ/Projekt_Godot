@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d2gmmskj56ha3" path="res://scenes/world/Teleportzone/teleportzone.tscn" id="18_2nbo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j68d"]
-size = Vector2(506.5, 145)
+size = Vector2(384.5, 145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brrxm"]
 size = Vector2(172.5, 63.5)
@@ -400,7 +400,7 @@ position = Vector2(341, 301)
 full_text = "A, D und Leertaste zum bewegen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial_Text/Tutorial_Text_1"]
-position = Vector2(121.75, 73)
+position = Vector2(60.75, 73)
 shape = SubResource("RectangleShape2D_3j68d")
 metadata/_edit_lock_ = true
 
@@ -426,16 +426,16 @@ metadata/_edit_lock_ = true
 [node name="Enemies" type="Node" parent="."]
 
 [node name="enemy_slime_green" parent="Enemies" instance=ExtResource("10_q05rg")]
-position = Vector2(1245, 277)
+position = Vector2(1246, 291)
 
 [node name="enemy_slime_green2" parent="Enemies" instance=ExtResource("10_q05rg")]
-position = Vector2(1412, 207)
+position = Vector2(1409, 223)
 
 [node name="enemy_slime_green3" parent="Enemies" instance=ExtResource("10_q05rg")]
-position = Vector2(1808, 488)
+position = Vector2(1813, 507)
 
 [node name="enemy_slime_green4" parent="Enemies" instance=ExtResource("10_q05rg")]
-position = Vector2(1964, 482)
+position = Vector2(1962, 513)
 
 [node name="MusicChange" type="Node" parent="."]
 script = ExtResource("15_xpwd5")

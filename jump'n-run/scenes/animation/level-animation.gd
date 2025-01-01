@@ -9,7 +9,7 @@ signal disable_music_switch
 @onready var music_change: Node = null
 
 func _ready() -> void:
-	music_change = get_node("/root/Level1/MusicChange")
+	music_change = Gamemanager.current_level.get_node("MusicChange")
 	
 	connect("disable_music_switch", Callable(music_change, "on_animation_finished"))
 	

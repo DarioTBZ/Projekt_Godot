@@ -37,8 +37,8 @@ var level: Node = null
 @onready var player_ui: CanvasLayer = null
 
 func _ready() -> void:
-	level = get_node("/root/Level1")
-	player_ui = get_node("/root/Level1/PlayerUI")
+	level = Gamemanager.current_level
+	player_ui = Gamemanager.current_level.get_node("PlayerUI")
 	
 	call_deferred("get_health", 100)
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
@@ -52,7 +52,7 @@ func _ready() -> void:
 		cam_zoom = config.get_value("video", "cam_zoom", Vector2(2, 2))
 	camera.zoom = cam_zoom
 
-func _physics_process(delta: float):
+func _physics_process(delta: float):	
 	if is_dead:
 		return
 	if is_in_animation == false && camera.enabled == false:

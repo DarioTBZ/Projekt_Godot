@@ -4,7 +4,8 @@ signal respawn_player
 @onready var level: Node = null
 
 func _ready() -> void:
-	level = get_node("/root/Level1")
+	level = Gamemanager.current_level
+	print(level)
 	visible = false
 	connect("respawn_player", Callable(level, "respawn_player"))
 
@@ -14,6 +15,7 @@ func _on_game_start_button_pressed() -> void:
 
 
 func _on_mainmenu_button_pressed() -> void:
+	visible = false
 	get_tree().change_scene_to_file("res://scenes/menu/Mainmenu/mainmenu.tscn")
 
 func _process(_delta: float) -> void:

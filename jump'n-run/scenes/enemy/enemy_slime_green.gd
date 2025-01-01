@@ -24,11 +24,8 @@ var death_sound_played = false
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
+	Gamemanager.connect("player_loaded", Callable(self, "on_player_loaded"))
 	death_sound_played = false
-	player = get_node("/root/Level1/Player")
-	if player and player.is_in_group("player"):
-		connect("make_damage", Callable(player, "take_damage"))
-		connect("add_jump_to_player", Callable(player, "add_jump_from_slime"))
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -73,3 +70,9 @@ func play_death_sound():
 		var random_index = randi() % death_sounds.size()
 		audio.stream = death_sounds[random_index]
 		audio.play()
+
+func on_player_loaded(_player):
+	player = Gamemanager.player
+	if player and player.is_in_group("player"):
+		connect("make_damage", Callable(player, "take_damage"))
+		connect("add_jump_to_player", Callable(player, "add_jump_from_slime"))

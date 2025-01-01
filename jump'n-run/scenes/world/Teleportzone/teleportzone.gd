@@ -5,7 +5,7 @@ signal player_fell_into_teleport_zone
 @onready var level: Node = null
 
 func _ready() -> void:
-	level = get_node("/root/Level1")
+	level = Gamemanager.current_level
 	connect("player_fell_into_teleport_zone", Callable(level, "scary_zone_teleport_player"))
 
 func _on_body_entered(body: Node2D) -> void:
