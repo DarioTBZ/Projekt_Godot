@@ -19,7 +19,6 @@ var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 func _ready() -> void:
 	modulate = Color(0.75, 0.75, 0.75, 1)
 	player.position = Vector2(345.0, 382.0)
-	player.connect("health_changed", Callable(player_ui, "update_health_bar"))
 	animation_player.connect("ui_switch", Callable(player_ui, "switch_ui"))
 	player_ui.connect("ui_switch_coin_counter", Callable(coin_counter, "ui_switch_coin_counter"))
 	connect("player_respawn", Callable(player, "respawn"))

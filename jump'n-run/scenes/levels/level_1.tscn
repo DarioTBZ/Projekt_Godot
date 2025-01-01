@@ -634,6 +634,9 @@ position = Vector2(2277, 394)
 position = Vector2(207.5, 564.5)
 shape = SubResource("RectangleShape2D_8w4ko")
 
+[node name="enemy_slime_green" parent="." instance=ExtResource("10_q05rg")]
+position = Vector2(336.016, 342.123)
+
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D3" to="MusicChange" method="_on_body_entered_phase2"]

@@ -3,6 +3,8 @@ extends CharacterBody2D
 signal coin_collected
 signal died(player)
 signal show_deathscreen
+signal health_changed(new_health)
+
 
 var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 
@@ -16,7 +18,6 @@ var maintheme = load("res://scenes/sound/music/mainmenu-music.mp3")
 var jumps_available := max_jumps
 var is_in_animation = false
 # HP and Damage
-signal health_changed(new_health)
 
 @export var max_hp:float = 100
 var current_hp: float = 100
@@ -30,12 +31,16 @@ var level: Node = null
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 @onready var camera: Camera2D = $Camera2D
 
+@onready var player_ui: CanvasLayer = null
+
 func _ready() -> void:
 	level = get_node("/root/Level1")
+	player_ui = get_node("/root/Level1/PlayerUI")
 	
 	call_deferred("get_health", 100)
 	connect("coin_collected", Callable(self, "_on_coin_collected"))
 	connect("died", Callable(level, "player_died"))
+	connect("health_changed", Callable(player_ui, "update_health_bar"))
 
 	
 	var cam_zoom: Vector2
@@ -86,9 +91,9 @@ func _on_coin_collected():
 func take_damage(amount: float):
 	if is_dead == true:
 		return
+	current_hp = clamp(current_hp, 0, max_hp)
 	hurt_sound.play()
 	current_hp -= amount
-	current_hp = clamp(current_hp, 0, max_hp)
 	emit_signal("health_changed", current_hp)
 	if current_hp == 0:
 		die()
