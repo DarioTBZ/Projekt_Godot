@@ -1,7 +1,12 @@
 extends CanvasLayer
 
+var pause_sound: AudioStream = load("res://scenes/sound/pausemenu/click_1_pause.wav")
+
+@onready var audio = $PauseSound
+
 func _ready() -> void:
 	visible = false
+	audio.stream = pause_sound
 
 func _on_button_pressed() -> void:
 	GlobalMusicPlayer.scnd_stop_music()
@@ -10,6 +15,7 @@ func _on_button_pressed() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("PauseUnpause"):
+		audio.play()
 		if visible == false:
 			visible = true
 		else:

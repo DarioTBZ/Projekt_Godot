@@ -83,4 +83,7 @@ theme_override_fonts/font = ExtResource("2_lkhqf")
 theme_override_font_sizes/font_size = 50
 text = "Zurück zum Hauptmenu"
 
+[node name="PauseSound" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
