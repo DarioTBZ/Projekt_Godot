@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=37 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_kjegv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://81giubl4sbjv" path="res://scenes/creature/unknown_creature.tscn" id="13_0eyhj"]
 [ext_resource type="Texture2D" uid="uid://bc7r1kypi8dn8" path="res://assets/Light/light2.png" id="14_ptaa8"]
 [ext_resource type="Script" path="res://scenes/sound/level1_music_change/music_change.gd" id="15_xpwd5"]
+[ext_resource type="PackedScene" uid="uid://iygypvknlsae" path="res://scenes/world/invisible_wall/invisible_wall.tscn" id="17_iriq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j68d"]
 size = Vector2(384.5, 145)
@@ -30,7 +31,7 @@ size = Vector2(168, 102)
 size = Vector2(20, 244.488)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csusr"]
-size = Vector2(20, 309)
+size = Vector2(20, 403.5)
 
 [sub_resource type="Animation" id="Animation_pnkmd"]
 resource_name = "Test"
@@ -371,6 +372,9 @@ sources/0 = SubResource("TileSetAtlasSource_8i58r")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_durhk"]
 size = Vector2(3126, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hta8j"]
+size = Vector2(6, 85)
+
 [node name="Level1" type="Node2D"]
 modulate = Color(0.753984, 0.753984, 0.753984, 1)
 script = ExtResource("1_kjegv")
@@ -433,7 +437,7 @@ script = ExtResource("15_xpwd5")
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D"]
-position = Vector2(-281, -281.244)
+position = Vector2(-237, -265)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D2" type="Area2D" parent="MusicChange"]
@@ -454,14 +458,14 @@ shape = SubResource("RectangleShape2D_uxpmd")
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D4"]
-position = Vector2(166, -175)
+position = Vector2(231, -104)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="SoundLauter" type="Area2D" parent="MusicChange"]
 position = Vector2(1483, 191)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/SoundLauter"]
-position = Vector2(111, 53)
+position = Vector2(111, 100.25)
 shape = SubResource("RectangleShape2D_csusr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -511,7 +515,7 @@ collision_mask = 5
 
 [node name="Player" parent="." instance=ExtResource("2_20pxt")]
 z_index = 5
-position = Vector2(353, 385)
+position = Vector2(360, 372)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_ubaij")]
 
@@ -598,9 +602,18 @@ position = Vector2(1352, 224)
 unique_name_in_owner = true
 
 [node name="pause_ui" parent="." instance=ExtResource("10_sasdw")]
+visible = false
 
 [node name="DeathScreen" parent="." instance=ExtResource("5_cuj4m")]
 visible = false
+
+[node name="InvisibleWall" parent="." instance=ExtResource("17_iriq4")]
+position = Vector2(2184, 483)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
+position = Vector2(23, -11.5)
+shape = SubResource("RectangleShape2D_hta8j")
 
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
