@@ -42,3 +42,6 @@ func player_died():
 
 func _on_body_entered_creepyzone(_body: Node2D) -> void:
 	modulate = Color(0.5, 0.5, 0.5, 1)
+
+func scary_zone_teleport_player():
+	player.position = Vector2(2261, 460)

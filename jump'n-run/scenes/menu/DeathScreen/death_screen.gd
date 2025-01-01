@@ -15,3 +15,8 @@ func _on_game_start_button_pressed() -> void:
 
 func _on_mainmenu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/Mainmenu/mainmenu.tscn")
+
+func _process(_delta: float) -> void:
+	if visible:
+		if Input.is_action_just_pressed("Respawn"):
+			_on_game_start_button_pressed()

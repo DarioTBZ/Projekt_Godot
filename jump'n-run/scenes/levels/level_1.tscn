@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=39 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_kjegv"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bc7r1kypi8dn8" path="res://assets/Light/light2.png" id="14_ptaa8"]
 [ext_resource type="Script" path="res://scenes/sound/level1_music_change/music_change.gd" id="15_xpwd5"]
 [ext_resource type="PackedScene" uid="uid://iygypvknlsae" path="res://scenes/world/invisible_wall/invisible_wall.tscn" id="17_iriq4"]
+[ext_resource type="PackedScene" uid="uid://d2gmmskj56ha3" path="res://scenes/world/Teleportzone/teleportzone.tscn" id="18_2nbo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j68d"]
 size = Vector2(384.5, 145)
@@ -28,7 +29,7 @@ size = Vector2(172.5, 63.5)
 size = Vector2(168, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxpmd"]
-size = Vector2(20, 244.488)
+size = Vector2(20, 545.561)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csusr"]
 size = Vector2(20, 403.5)
@@ -370,10 +371,13 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_8i58r")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_durhk"]
-size = Vector2(3126, 68)
+size = Vector2(2622, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hta8j"]
-size = Vector2(6, 85)
+size = Vector2(9, 639)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4ko"]
+size = Vector2(547, 83)
 
 [node name="Level1" type="Node2D"]
 modulate = Color(0.753984, 0.753984, 0.753984, 1)
@@ -437,21 +441,21 @@ script = ExtResource("15_xpwd5")
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D"]
-position = Vector2(-237, -265)
+position = Vector2(-237, -163.122)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D2" type="Area2D" parent="MusicChange"]
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D2"]
-position = Vector2(-113, -223)
+position = Vector2(-113, -185.561)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D3" type="Area2D" parent="MusicChange"]
 position = Vector2(2006, 498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicChange/Area2D3"]
-position = Vector2(32, -203)
+position = Vector2(32, -191.781)
 shape = SubResource("RectangleShape2D_uxpmd")
 
 [node name="Area2D4" type="Area2D" parent="MusicChange"]
@@ -523,7 +527,7 @@ position = Vector2(360, 372)
 position = Vector2(381, 619)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(756, 334)
+position = Vector2(504, 334)
 shape = SubResource("RectangleShape2D_durhk")
 
 [node name="PauseUnpause" parent="." instance=ExtResource("4_a7hn1")]
@@ -612,8 +616,23 @@ position = Vector2(2184, 483)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
-position = Vector2(23, -11.5)
+position = Vector2(20, 247)
 shape = SubResource("RectangleShape2D_hta8j")
+
+[node name="InvisibleWall2" parent="." instance=ExtResource("17_iriq4")]
+position = Vector2(2184, 483)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
+position = Vector2(578, 318)
+shape = SubResource("RectangleShape2D_hta8j")
+
+[node name="Teleportzone" parent="." instance=ExtResource("18_2nbo8")]
+position = Vector2(2277, 394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleportzone"]
+position = Vector2(207.5, 564.5)
+shape = SubResource("RectangleShape2D_8w4ko")
 
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
