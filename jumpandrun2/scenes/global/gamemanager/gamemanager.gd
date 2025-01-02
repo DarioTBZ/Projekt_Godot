@@ -10,7 +10,7 @@ func load_level(scene_path: String):
 		current_level.queue_free()
 	current_level = load(scene_path).instantiate()
 	call_deferred("add_child", current_level)
-	print("Level geladen: ", scene_path)
+	print("Gamemanager: ",current_level, " geladen.")
 
 func restart_level():
 	if current_level:
