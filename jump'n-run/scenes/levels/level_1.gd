@@ -26,7 +26,7 @@ func _ready() -> void:
 	game_start_player.stream = game_start
 	game_start_player.play()
 	modulate = Color(0.75, 0.75, 0.75, 1)
-	player.position = Vector2(345.0, 382.0)
+	#player.position = Vector2(345.0, 382.0)
 	animation_player.connect("ui_switch", Callable(player_ui, "switch_ui"))
 	player_ui.connect("ui_switch_coin_counter", Callable(coin_counter, "ui_switch_coin_counter"))
 	connect("player_respawn", Callable(player, "respawn"))

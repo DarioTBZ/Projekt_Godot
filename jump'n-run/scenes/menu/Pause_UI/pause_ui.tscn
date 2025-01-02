@@ -82,6 +82,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_lkhqf")
 theme_override_font_sizes/font_size = 50
 text = "Zurück zum Hauptmenu"
+flat = true
 
 [node name="PauseSound" type="AudioStreamPlayer" parent="."]
 volume_db = -8.0

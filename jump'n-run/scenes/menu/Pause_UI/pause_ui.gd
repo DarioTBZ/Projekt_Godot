@@ -22,7 +22,6 @@ func _on_button_pressed() -> void:
 func _process(_delta: float) -> void:
 	player = Gamemanager.player
 	if player == null:
-		print(("Player is null"))
 		return
 	
 	if player.is_dead:

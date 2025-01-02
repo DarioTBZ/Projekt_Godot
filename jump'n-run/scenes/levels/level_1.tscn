@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bf8668bjjfw16"]
+[gd_scene load_steps=41 format=4 uid="uid://bf8668bjjfw16"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/sprites/world_tileset.png" id="1_c7lmb"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_kjegv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/sound/level1_music_change/music_change.gd" id="15_xpwd5"]
 [ext_resource type="PackedScene" uid="uid://iygypvknlsae" path="res://scenes/world/invisible_wall/invisible_wall.tscn" id="17_iriq4"]
 [ext_resource type="PackedScene" uid="uid://d2gmmskj56ha3" path="res://scenes/world/Teleportzone/teleportzone.tscn" id="18_2nbo8"]
+[ext_resource type="Script" path="res://scenes/levels/Level1/level_1.gd" id="19_5rpfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j68d"]
 size = Vector2(506.5, 145)
@@ -162,7 +163,7 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r6cs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kajik"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pagq"]
 resource_name = "Background"
 texture = ExtResource("1_c7lmb")
 0:9/0 = 0
@@ -207,9 +208,9 @@ texture = ExtResource("1_c7lmb")
 6:10/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xu5ls"]
-sources/0 = SubResource("TileSetAtlasSource_kajik")
+sources/0 = SubResource("TileSetAtlasSource_7pagq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbpny"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bb2k6"]
 resource_name = "World"
 texture = ExtResource("1_c7lmb")
 3:15/0 = 0
@@ -300,9 +301,9 @@ terrain_set_0/terrain_2/name = "WeirdStoneTerrain"
 terrain_set_0/terrain_2/color = Color(0.373243, 0.135688, 0, 1)
 terrain_set_0/terrain_3/name = "BlueStoneTerrain"
 terrain_set_0/terrain_3/color = Color(0.175095, 0.372562, 1, 1)
-sources/0 = SubResource("TileSetAtlasSource_hbpny")
+sources/0 = SubResource("TileSetAtlasSource_bb2k6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6u71"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6tsm"]
 resource_name = "DecorationPlant"
 texture = ExtResource("1_c7lmb")
 0:3/0 = 0
@@ -347,9 +348,9 @@ texture = ExtResource("1_c7lmb")
 [sub_resource type="TileSet" id="TileSet_frte2"]
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_j6u71")
+sources/0 = SubResource("TileSetAtlasSource_u6tsm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i58r"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxntc"]
 resource_name = "Decoratino NoPlant"
 texture = ExtResource("1_c7lmb")
 0:7/0 = 0
@@ -368,7 +369,7 @@ texture = ExtResource("1_c7lmb")
 [sub_resource type="TileSet" id="TileSet_rfgng"]
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_8i58r")
+sources/0 = SubResource("TileSetAtlasSource_gxntc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_durhk"]
 size = Vector2(2622, 68)
@@ -378,6 +379,9 @@ size = Vector2(9, 639)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4ko"]
 size = Vector2(547, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnkyg"]
+size = Vector2(1003.75, 52.75)
 
 [node name="Level1" type="Node2D"]
 modulate = Color(0.753984, 0.753984, 0.753984, 1)
@@ -522,7 +526,7 @@ collision_mask = 5
 
 [node name="Player" parent="." instance=ExtResource("2_20pxt")]
 z_index = 5
-position = Vector2(360, 372)
+position = Vector2(2746, 432)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_ubaij")]
 
@@ -640,6 +644,14 @@ shape = SubResource("RectangleShape2D_8w4ko")
 [node name="enemy_slime_green" parent="." instance=ExtResource("10_q05rg")]
 position = Vector2(336.016, 342.123)
 
+[node name="NextLevel" type="Area2D" parent="."]
+position = Vector2(2936, 971)
+script = ExtResource("19_5rpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(332.125, -30.375)
+shape = SubResource("RectangleShape2D_wnkyg")
+
 [connection signal="body_entered" from="MusicChange/Area2D" to="MusicChange" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D2" to="MusicChange" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="MusicChange/Area2D3" to="MusicChange" method="_on_body_entered_phase2"]
@@ -648,3 +660,4 @@ position = Vector2(336.016, 342.123)
 [connection signal="body_entered" from="MusicChange/SoundLauter" to="MusicChange" method="_on_sound_lauter_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
 [connection signal="body_entered" from="AnimationPlayer/Area2D" to="AnimationPlayer" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

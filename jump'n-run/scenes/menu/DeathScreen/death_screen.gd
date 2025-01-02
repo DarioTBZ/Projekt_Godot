@@ -5,7 +5,6 @@ signal respawn_player
 
 func _ready() -> void:
 	level = Gamemanager.current_level
-	print(level)
 	visible = false
 	connect("respawn_player", Callable(level, "respawn_player"))
 
