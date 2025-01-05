@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cd883xq22qds7"]
+[gd_scene load_steps=14 format=4 uid="uid://cd883xq22qds7"]
 
 [ext_resource type="Texture2D" uid="uid://piu3ypl2h0" path="res://assets/tilemap/world_tileset.png" id="1_3dct7"]
 [ext_resource type="Script" path="res://scenes/level/level1/level_1.gd" id="1_f4fi4"]
 [ext_resource type="PackedScene" uid="uid://d1imuer6rige3" path="res://scenes/player/player.tscn" id="2_1rgv1"]
+[ext_resource type="PackedScene" uid="uid://sgi8gbmnnuup" path="res://scenes/level/killzone/killzone.tscn" id="4_r1hmw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3be4"]
 resource_name = "Background"
@@ -348,6 +349,9 @@ texture = ExtResource("1_3dct7")
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_x3hvv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnd07"]
+size = Vector2(1864.5, 20)
+
 [node name="level1" type="Node2D"]
 script = ExtResource("1_f4fi4")
 
@@ -373,4 +377,10 @@ tile_map_data = PackedByteArray("AAAPAB4AAAAJAAMAAAA=")
 tile_set = SubResource("TileSet_8oy2v")
 
 [node name="Player" parent="." instance=ExtResource("2_1rgv1")]
-position = Vector2(230, 402)
+position = Vector2(241, 426)
+
+[node name="Killzone" parent="." instance=ExtResource("4_r1hmw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(781, 966)
+shape = SubResource("RectangleShape2D_nnd07")

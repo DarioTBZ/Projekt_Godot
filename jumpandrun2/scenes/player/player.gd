@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal respawn_to_level
 
 @export var speed := 200
 @export var jump_force := -400
@@ -12,6 +13,7 @@ var jumps_available := max_jumps
 
 @onready var camera: Camera2D = $Camera2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var death_screen: CanvasLayer = $DeathScreen
 
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
@@ -24,11 +26,15 @@ var is_dead: bool = false
 @onready var level: Node = null
 
 func _ready() -> void:
+	Gamemanager.connect("level_loaded", Callable(self, "on_level_loaded"))
+
 	# Cam Setup from User File
 	var cam_zoom: Vector2
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
 		cam_zoom = config.get_value("video", "cam_zoom", Vector2(2, 2))
+	else:
+		cam_zoom = Vector2(2, 2)
 	camera.zoom = cam_zoom
 
 func _physics_process(delta: float):
@@ -61,3 +67,22 @@ func _physics_process(delta: float):
 		jumps_available -= 1
 
 	move_and_slide()
+
+func on_level_loaded():
+	level = Gamemanager.current_level
+	connect("respawn_to_level", Callable(level, "respawn_player"))
+
+func on_player_fell_in_killzone():
+	die()
+	print("Player fell into killzone")
+
+func die():
+	visible = false
+	death_sound.play()
+	is_dead = true
+	death_screen.visible = true
+
+func respawn():
+	is_dead = false
+	
+	emit_signal("respawn_to_level")

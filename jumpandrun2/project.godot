@@ -18,6 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 Gamemanager="*res://scenes/global/gamemanager/gamemanager.gd"
+Musicplayer="*res://scenes/global/musicplayer/musicplayer.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
 
 [input]
 
@@ -47,6 +58,7 @@ pause={
 2d_physics/layer_1="player"
 2d_physics/layer_2="landscape"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="killzone"
 
 [rendering]
 

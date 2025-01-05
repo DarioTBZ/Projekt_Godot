@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://d1imuer6rige3"]
+[gd_scene load_steps=59 format=3 uid="uid://d1imuer6rige3"]
 
 [ext_resource type="Texture2D" uid="uid://do08fef0wcums" path="res://assets/player/knight.png" id="1_3ywcy"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_p2pnt"]
 [ext_resource type="AudioStream" uid="uid://bv5ht6280gdj6" path="res://assets/sounds/jump.wav" id="3_ec0t3"]
 [ext_resource type="AudioStream" uid="uid://cu788nb88kbdl" path="res://assets/sounds/hurt.wav" id="4_beayr"]
 [ext_resource type="AudioStream" uid="uid://b407cbovwcl11" path="res://assets/sounds/player/game_over_sound_1.wav" id="5_7otew"]
+[ext_resource type="PackedScene" uid="uid://dox8futxw0m13" path="res://scenes/menu/deathscreen/death_screen.tscn" id="6_0t4m1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu562"]
 atlas = ExtResource("1_3ywcy")
@@ -433,5 +434,7 @@ zoom = Vector2(2, 2)
 limit_bottom = 980
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="DeathScreen" parent="." instance=ExtResource("6_0t4m1")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
