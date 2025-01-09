@@ -14,6 +14,7 @@ config/name="Jump'n Run"
 run/main_scene="res://scenes/menu/Mainmenu/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon/icon.png"
+config/tags=PackedStringArray("old")
 
 [autoload]
 
