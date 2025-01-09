@@ -13,3 +13,8 @@ func _on_gamestart_button() -> void:
 func _on_mainmenu_button() -> void:
 	visible = false
 	get_tree().change_scene_to_file("res://scenes/menu/mainmenu/mainmenu.tscn")
+
+func _process(delta):
+	if visible:
+		if Input.is_action_just_pressed("jump"):
+			_on_gamestart_button()
